@@ -18,8 +18,7 @@ class SearchViewControoler: UITableViewController {
     private var timer: Timer?
     var searchController = UISearchController(searchResultsController: nil)
     
-    var trecks = [TreckModel(artistName: "Bon Jovi", treckName: "gud by"),
-    TreckModel(artistName: "Eminem", treckName: "8 mile")]
+    var trecks = [Track]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,7 @@ class SearchViewControoler: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId",for: indexPath)
         let treck = trecks[indexPath.row]
-        cell.textLabel?.text = "\(treck.treckName) \n \(treck.artistName)"
+        cell.textLabel?.text = "\(treck.trackName) \n \(treck.artistName)"
         cell.textLabel?.numberOfLines = 2
         cell.imageView?.image = #imageLiteral(resourceName: "Image")
         return cell
@@ -58,30 +57,34 @@ extension SearchViewControoler: UISearchBarDelegate {
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             
             self.timer?.invalidate()
-            let url = "https://itunes.apple.com/search?term=\(searchText)"
+            let url = "https://itunes.apple.com/search"
+            let parameters = ["term":"\(searchText)", "limit":"10"]
             
-            AF.request(url).responseData { (dataResponse) in
-                if let error = dataResponse.error {
-                    print("Error received requestiong data: \(error.localizedDescription)")
-                    return
-                }
-                
-                
-                guard let data = dataResponse.data else { return }
-                
-                let decoder = JSONDecoder()
-                do {
-                    let objects = try decoder.decode(SearchResponse.self, from: data)
-                    print("Onject: \(objects)")
-                }catch let jsonError{
-                    print("JsoneError: \(jsonError)")
-                }
-                let someString = String(data: data, encoding: .utf8)
+            AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (dataResponse) in
+            if let error = dataResponse.error {
+                print("Error received requestiong data: \(error.localizedDescription)")
+                return
+            }
+            
+            
+            guard let data = dataResponse.data else { return }
+            
+            let decoder = JSONDecoder()
+            do {
+                let objects = try decoder.decode(SearchResponse.self, from: data)
+                self.trecks += objects.results
+                self.tableView.reloadData()
+                //print("Onject: \(objects)")
+            }catch let jsonError{
+                print("JsoneError: \(jsonError)")
+            }
+
+              //  let someString = String(data: data, encoding: .utf8)
                 
             }
         })
         
-       
+     
             
         }
     
