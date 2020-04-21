@@ -16,6 +16,7 @@ struct TreckModel {
 
 class SearchViewControoler: UITableViewController {
     private var timer: Timer?
+    var networkService = NetworkService()
     var searchController = UISearchController(searchResultsController: nil)
     
     var trecks = [Track]()
@@ -54,33 +55,11 @@ class SearchViewControoler: UITableViewController {
 extension SearchViewControoler: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            
-            self.timer?.invalidate()
-            let url = "https://itunes.apple.com/search"
-            let parameters = ["term":"\(searchText)", "limit":"10"]
-            
-            AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (dataResponse) in
-            if let error = dataResponse.error {
-                print("Error received requestiong data: \(error.localizedDescription)")
-                return
-            }
-            
-            
-            guard let data = dataResponse.data else { return }
-            
-            let decoder = JSONDecoder()
-            do {
-                let objects = try decoder.decode(SearchResponse.self, from: data)
-                self.trecks += objects.results
-                self.tableView.reloadData()
-                //print("Onject: \(objects)")
-            }catch let jsonError{
-                print("JsoneError: \(jsonError)")
-            }
-
-              //  let someString = String(data: data, encoding: .utf8)
-                
+            self.networkService.fetchTracks(searchText: searchText) { [weak self](searchResult) in
+                self?.trecks = searchResult?.results ?? []
+                self?.tableView.reloadData()
             }
         })
         

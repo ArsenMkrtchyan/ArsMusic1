@@ -9,7 +9,7 @@
 import Foundation
 
 struct SearchResponse: Decodable {
-    var resultCount:Int
+    var resultCount:Int?
     var results: [Track]
 }
 struct Track: Decodable{
