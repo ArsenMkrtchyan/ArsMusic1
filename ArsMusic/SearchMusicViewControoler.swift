@@ -14,7 +14,7 @@ struct TreckModel {
     var treckName:String
 }
 
-class SearchViewControoler: UITableViewController {
+class SearchMusicViewControoler: UITableViewController {
     private var timer: Timer?
     var networkService = NetworkService()
     var searchController = UISearchController(searchResultsController: nil)
@@ -52,7 +52,7 @@ class SearchViewControoler: UITableViewController {
     }
 }
 
-extension SearchViewControoler: UISearchBarDelegate {
+extension SearchMusicViewControoler: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
