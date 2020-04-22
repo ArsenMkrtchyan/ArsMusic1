@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol TrackCellViewModel {
-    var iconUrlString: String {get}
+    var iconUrlString: String? {get}
     var trackName: String {get}
     var collectinName: String {get}
     var artistName: String {get}
@@ -28,10 +29,16 @@ class TrackCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    override func prepareForReuse() {
+        treckImageView.image = nil
+    }
     
     func set(viewModel: TrackCellViewModel) {
         artistName.text = viewModel.artistName
         trackName.text = viewModel.trackName
         collectinName.text = viewModel.collectinName
+        
+        guard let url = URL(string: viewModel.iconUrlString ?? "") else { return }
+        treckImageView.sd_setImage(with: url, completed: nil)
     }
 }

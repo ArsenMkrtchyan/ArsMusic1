@@ -35,7 +35,7 @@ enum Search {
 }
 struct SearchViewModel {
     struct Cell:TrackCellViewModel {
-        var iconUrlString: String
+        var iconUrlString: String?
         var trackName: String
         var collectinName: String
         var artistName: String
