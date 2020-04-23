@@ -17,14 +17,14 @@ class SearchPresenter: SearchPresentationLogic {
   
   func presentData(response: Search.Model.Response.ResponseType) {
     switch response {
-    case .some:
-        print("prisenter .some")
     case .presentTracks(let searchResult):
         let cells = searchResult?.results.map{
             cellViewModel(from: $0)
         } ?? []
         let searchViewModel = SearchViewModel.init(cells: cells)
         viewController?.displayData(viewModel: Search.Model.ViewModel.ViewModelData.displayTracks(searchViewModel: searchViewModel))
+    case .presentFooterView:
+        viewController?.displayData(viewModel: Search.Model.ViewModel.ViewModelData.displayFooterView)
     }
   }
     private func cellViewModel(from treck: Track) -> SearchViewModel.Cell {

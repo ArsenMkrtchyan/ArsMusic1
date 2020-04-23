@@ -34,8 +34,8 @@ class TrackCell: UITableViewCell {
     }
     
     func set(viewModel: TrackCellViewModel) {
-        artistName.text = viewModel.artistName
-        trackName.text = viewModel.trackName
+        artistName.text = viewModel.trackName
+        trackName.text = viewModel.artistName
         collectinName.text = viewModel.collectinName
         
         guard let url = URL(string: viewModel.iconUrlString ?? "") else { return }
