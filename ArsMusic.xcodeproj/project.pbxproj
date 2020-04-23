@@ -31,6 +31,8 @@
 		F3A89D242450879400CE521A /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A89D232450879300CE521A /* TrackCell.xib */; };
 		F3A89D26245087B800CE521A /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A89D25245087B800CE521A /* TrackCell.swift */; };
 		F3A89D2A2451944A00CE521A /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A89D292451944A00CE521A /* FooterView.swift */; };
+		F3A89D2D2451B65200CE521A /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A89D2C2451B65200CE521A /* TrackDetailView.xib */; };
+		F3A89D2F2451B66C00CE521A /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A89D2E2451B66C00CE521A /* TrackDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		F3A89D232450879300CE521A /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		F3A89D25245087B800CE521A /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		F3A89D292451944A00CE521A /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F3A89D2C2451B65200CE521A /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		F3A89D2E2451B66C00CE521A /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		FDA94EC065EFBBAC42DE6C48 /* Pods-ArsMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArsMusic.release.xcconfig"; path = "Target Support Files/Pods-ArsMusic/Pods-ArsMusic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +187,7 @@
 		F3A89CFF244F6E0000CE521A /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				F3A89D2B2451B61600CE521A /* TrackDetailView */,
 				F3A89D282451942100CE521A /* FooterView */,
 				F3A89D222450876700CE521A /* Cell */,
 				F3A89D1D2450421900CE521A /* SearchViewController.storyboard */,
@@ -200,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				F3A89D27245096AB00CE521A /* Models */,
-				F3A89CFD244F2BA700CE521A /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -225,6 +229,7 @@
 		F3A89D27245096AB00CE521A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F3A89CFD244F2BA700CE521A /* NetworkService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +240,15 @@
 				F3A89D292451944A00CE521A /* FooterView.swift */,
 			);
 			path = FooterView;
+			sourceTree = "<group>";
+		};
+		F3A89D2B2451B61600CE521A /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				F3A89D2C2451B65200CE521A /* TrackDetailView.xib */,
+				F3A89D2E2451B66C00CE521A /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +340,7 @@
 				F3A89CCB244E0D5100CE521A /* Assets.xcassets in Resources */,
 				F3A89D242450879400CE521A /* TrackCell.xib in Resources */,
 				F3A89D1E2450421900CE521A /* SearchViewController.storyboard in Resources */,
+				F3A89D2D2451B65200CE521A /* TrackDetailView.xib in Resources */,
 				F3A89CC9244E0D4B00CE521A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +438,7 @@
 				F3A89CC4244E0D4B00CE521A /* SceneDelegate.swift in Sources */,
 				F3A89D16244F6FBD00CE521A /* SearchPresenter.swift in Sources */,
 				F3A89CFE244F2BA700CE521A /* NetworkService.swift in Sources */,
+				F3A89D2F2451B66C00CE521A /* TrackDetailView.swift in Sources */,
 				F3A89D202450463200CE521A /* UIViewController + Storybord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

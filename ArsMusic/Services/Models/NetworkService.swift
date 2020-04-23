@@ -29,7 +29,6 @@ class NetworkService {
             do {
                 let objects = try decoder.decode(SearchResponse.self, from: data)
                 campetion(objects)
-                print("Onject: \(objects)")
             }catch let jsonError{
                 campetion(nil)
                 print("JsoneError: \(jsonError)")

@@ -109,6 +109,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         lable.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         return lable
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellViewModel = searchViewModel.cells[indexPath.row]
+        print(cellViewModel.artistName)
+        let window = UIApplication.shared.windows.last
+        let trackDetailView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
+        window?.addSubview(trackDetailView)
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return searchViewModel.cells.count > 0 ? 0 : 250
     }
