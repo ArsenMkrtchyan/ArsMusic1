@@ -111,9 +111,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellViewModel = searchViewModel.cells[indexPath.row]
-        print(cellViewModel.artistName)
         let window = UIApplication.shared.windows.last
         let trackDetailView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
+        trackDetailView.set(viewModel: cellViewModel)
         window?.addSubview(trackDetailView)
     }
     
