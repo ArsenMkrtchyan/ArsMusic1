@@ -50,6 +50,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     setup()
     setupSearchBar()
     setupTableView()
+    searchBar(searchController.searchBar, textDidChange: "eminem")
   }
     
     private func setupSearchBar(){
