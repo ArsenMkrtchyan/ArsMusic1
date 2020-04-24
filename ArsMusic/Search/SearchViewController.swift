@@ -94,14 +94,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         cell.set(viewModel:cellViewModel)
-//        cell.textLabel?.text = "\(cellViewModel.artistName)\n \(cellViewModel.trackName)"
-//        cell.textLabel?.numberOfLines = 2
-//        cell.imageView?.image = #imageLiteral(resourceName: "Image")
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let lable = UILabel()
         lable.text = "Please enter search term above..."
