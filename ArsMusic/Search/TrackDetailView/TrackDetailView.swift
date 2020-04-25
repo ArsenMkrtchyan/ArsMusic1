@@ -42,6 +42,7 @@ class TrackDetailView: UIView {
         artistNameLable.text = viewModel.artistName
         playTrack(previewUrl: viewModel.previewUrl)
         monitorStartTime()
+        observeLayerCurrentTime()
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
         guard let url = URL(string: string600 ?? "")  else { return }
         trackImage.sd_setImage(with: url, completed: nil)
@@ -51,13 +52,12 @@ class TrackDetailView: UIView {
     
     private func playTrack(previewUrl: String?) {
         guard let url = URL(string: previewUrl ?? "") else { return }
-        print(url)
         let playerItem = AVPlayerItem(url: url)
         player.replaceCurrentItem(with: playerItem)
         player.play()
     }
     
-    // MARK: - time setup
+    // MARK: - Time setup
     private func monitorStartTime() {
         let time = CMTimeMake(value: 1, timescale: 3)
         let times = [NSValue(time: time)]
@@ -65,7 +65,17 @@ class TrackDetailView: UIView {
             self?.enlargeTrackImageView()
         }
     }
-    
+    // MARK: -Current Time Lable text
+    private func observeLayerCurrentTime() {
+        let time = CMTimeMake(value: 1, timescale: 2)
+        player.addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] (time) in
+            self?.currentTimeLable.text = time.toDisplayString()
+            
+            let durationTime = self?.player.currentItem?.duration
+            let currentDurationText = ((durationTime ?? CMTimeMake(value: 1, timescale: 2)) - time ).toDisplayString()
+            self?.durationLable.text = "-\(currentDurationText)"
+        }
+    }
      // MARK: - Animations
     private func enlargeTrackImageView() {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
@@ -73,12 +83,14 @@ class TrackDetailView: UIView {
         }, completion: nil)
         
     }
+    
     private func rediceTrackImageView() {
            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             let scale: CGFloat = 0.8
             self.trackImage.transform = CGAffineTransform(scaleX: scale, y: scale)
                   }, completion: nil)
     }
+    
 
     
     // MARK: -@IBAction

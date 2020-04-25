@@ -55,7 +55,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     
     private func setupSearchBar(){
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
