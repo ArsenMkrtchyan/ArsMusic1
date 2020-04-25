@@ -30,7 +30,7 @@ class TrackDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
         let scale: CGFloat = 0.8
         trackImage.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImage.layer.cornerRadius = 10
@@ -43,6 +43,7 @@ class TrackDetailView: UIView {
         playTrack(previewUrl: viewModel.previewUrl)
         monitorStartTime()
         observeLayerCurrentTime()
+        
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
         guard let url = URL(string: string600 ?? "")  else { return }
         trackImage.sd_setImage(with: url, completed: nil)
@@ -65,6 +66,17 @@ class TrackDetailView: UIView {
             self?.enlargeTrackImageView()
         }
     }
+    
+    private func updateCurrentTimeSlider() {
+        let currentTimeSecend = CMTimeGetSeconds(player.currentTime())
+        let durationSecends = CMTimeGetSeconds(player.currentItem?.duration ?? CMTimeMake(value: 1, timescale: 1))
+        let percentage = currentTimeSecend / durationSecends
+        self.currentTimeSlider.value = Float(percentage)
+        
+        
+        
+    }
+    
     // MARK: -Current Time Lable text
     private func observeLayerCurrentTime() {
         let time = CMTimeMake(value: 1, timescale: 2)
@@ -74,9 +86,11 @@ class TrackDetailView: UIView {
             let durationTime = self?.player.currentItem?.duration
             let currentDurationText = ((durationTime ?? CMTimeMake(value: 1, timescale: 2)) - time ).toDisplayString()
             self?.durationLable.text = "-\(currentDurationText)"
+            self?.updateCurrentTimeSlider()
         }
     }
-     // MARK: - Animations
+    
+    // MARK: - Animations
     private func enlargeTrackImageView() {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.trackImage.transform = .identity
@@ -85,13 +99,13 @@ class TrackDetailView: UIView {
     }
     
     private func rediceTrackImageView() {
-           UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             let scale: CGFloat = 0.8
             self.trackImage.transform = CGAffineTransform(scaleX: scale, y: scale)
-                  }, completion: nil)
+        }, completion: nil)
     }
     
-
+    
     
     // MARK: -@IBAction
     @IBAction func dragDownButtontapped(_ sender: UIButton) {
@@ -99,8 +113,17 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func handleCurrentTime(_ sender: UISlider) {
+        let persenteg = currentTimeSlider.value
+        guard let duration = player.currentItem?.duration else { return }
+        let durationInSecend = CMTimeGetSeconds(duration)
+        let seekTimeUnSecund = Float64(persenteg) * durationInSecend
+        let seekTime = CMTimeMakeWithSeconds(seekTimeUnSecund, preferredTimescale: 1)
+        player.seek(to: seekTime)
+        
+        
     }
     @IBAction func handelVolumeSlider(_ sender: Any) {
+        player.volume = volumeSlider.value
     }
     @IBAction func previousTrack(_ sender: Any) {
     }
