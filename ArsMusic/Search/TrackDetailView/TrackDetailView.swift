@@ -10,6 +10,11 @@ import UIKit
 import SDWebImage
 import AVKit
 
+protocol TrackMoviesDelegate: class {
+    func moveBackForPreviusTrack() -> SearchViewModel.Cell?
+    func moveForwordForPreviusTrack() -> SearchViewModel.Cell?
+}
+
 class TrackDetailView: UIView {
     
     @IBOutlet weak var trackImage: UIImageView!
@@ -20,6 +25,8 @@ class TrackDetailView: UIView {
     @IBOutlet weak var artistNameLable: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
+    
+    weak var delagate: TrackMoviesDelegate?
     
     let player: AVPlayer = {
         let avPlayer = AVPlayer()
@@ -126,9 +133,13 @@ class TrackDetailView: UIView {
         player.volume = volumeSlider.value
     }
     @IBAction func previousTrack(_ sender: Any) {
+        guard let cellViewModel = delagate?.moveBackForPreviusTrack() else { return }
+        self.set(viewModel: cellViewModel)
     }
     
     @IBAction func nextTrack(_ sender: Any) {
+        guard let cellViewModel = delagate?.moveForwordForPreviusTrack() else { return }
+        self.set(viewModel: cellViewModel)
     }
     
     @IBAction func playPauseAction(_ sender: Any) {
