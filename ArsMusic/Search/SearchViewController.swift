@@ -22,6 +22,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private lazy var footerView = FooterView()
     private var timer: Timer?
     @IBOutlet weak var table: UITableView!
+    weak var tabBarDelagate: MainTabBarControllerDeledate?
     
   
   
@@ -90,8 +91,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: TrackCell.reusleId, for: indexPath) as! TrackCell
         let cellViewModel = searchViewModel.cells[indexPath.row]
-        
-        
         cell.set(viewModel:cellViewModel)
         return cell
     }
@@ -110,11 +109,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellViewModel = searchViewModel.cells[indexPath.row]
-        let window = UIApplication.shared.windows.last
-        let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
-        trackDetailView.delagate = self
-        trackDetailView.set(viewModel: cellViewModel)
-        window?.addSubview(trackDetailView)
+        self.tabBarDelagate?.maximizeTrackDetailController(viewModel: cellViewModel)
     }
     
     
