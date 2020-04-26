@@ -164,11 +164,10 @@
 			children = (
 				F3A89CC1244E0D4B00CE521A /* AppDelegate.swift */,
 				F3A89CC3244E0D4B00CE521A /* SceneDelegate.swift */,
-				F3A89CE5244E125400CE521A /* SearchMusicViewControoler.swift */,
-				F3A89CE3244E0D8200CE521A /* MainTabBarController.swift */,
-				F3A89CFB244F05F300CE521A /* SearchResponse.swift */,
 				F3A89D0E244F6EBC00CE521A /* Services */,
+				F3A89CE3244E0D8200CE521A /* MainTabBarController.swift */,
 				F3A89CFF244F6E0000CE521A /* Search */,
+				F3A89CE5244E125400CE521A /* SearchMusicViewControoler.swift */,
 				F3A89CC5244E0D4B00CE521A /* ViewController.swift */,
 				F3A89D212450464800CE521A /* Helpers */,
 				F3A89CC7244E0D4B00CE521A /* Main.storyboard */,
@@ -209,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A89D27245096AB00CE521A /* Models */,
+				F3A89CFD244F2BA700CE521A /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 		F3A89D27245096AB00CE521A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F3A89CFD244F2BA700CE521A /* NetworkService.swift */,
+				F3A89CFB244F05F300CE521A /* SearchResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
