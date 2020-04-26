@@ -50,7 +50,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     setup()
     setupSearchBar()
     setupTableView()
-    searchBar(searchController.searchBar, textDidChange: "eminem")
+   // searchBar(searchController.searchBar, textDidChange: "rihanna")
   }
     
     private func setupSearchBar(){
@@ -76,9 +76,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     case .displayFooterView:
         footerView.showLoder()
     }
-
   }
-  
 }
 
 // MARK: - UITableViewDelegate,UITableViewDataSource
@@ -113,7 +111,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellViewModel = searchViewModel.cells[indexPath.row]
         let window = UIApplication.shared.windows.last
-        let trackDetailView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
+        let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
         trackDetailView.delagate = self
         trackDetailView.set(viewModel: cellViewModel)
         window?.addSubview(trackDetailView)
@@ -127,8 +125,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
-// MARK: - UISearchBarDelegate
 
+// MARK: - UISearchBarDelegate
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -139,7 +137,7 @@ extension SearchViewController: UISearchBarDelegate {
         
     }
 }
-// MARK: - TrackMoviesDelegate
+// MARK: - Track Movies Delegate
 extension SearchViewController: TrackMoviesDelegate {
     
     private func getTrack(isForwordTreack: Bool) -> SearchViewModel.Cell? {
@@ -155,13 +153,13 @@ extension SearchViewController: TrackMoviesDelegate {
                nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
                if  nextIndexPath.row == -1 {
                 nextIndexPath.row = searchViewModel.cells.count - 1
+                
                 }
-            }
+        }
         
         table.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
-        let celloModelView = searchViewModel.cells[nextIndexPath.row]
-        return celloModelView
-            
+        let cellModelView = searchViewModel.cells[nextIndexPath.row]
+        return cellModelView
         }
         
     

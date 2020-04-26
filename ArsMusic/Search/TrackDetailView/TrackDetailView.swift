@@ -15,7 +15,7 @@ protocol TrackMoviesDelegate: class {
     func moveForwordForPreviusTrack() -> SearchViewModel.Cell?
 }
 
-class TrackDetailView: UIView {
+class TrackDetailView: UIView{
     
     @IBOutlet weak var trackImage: UIImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
@@ -27,7 +27,7 @@ class TrackDetailView: UIView {
     @IBOutlet weak var volumeSlider: UISlider!
     
     weak var delagate: TrackMoviesDelegate?
-    
+    weak var tabBarDelegate: MainTabBarControllerDeledate?
     let player: AVPlayer = {
         let avPlayer = AVPlayer()
         avPlayer.automaticallyWaitsToMinimizeStalling = false
@@ -116,7 +116,8 @@ class TrackDetailView: UIView {
     
     // MARK: -@IBAction
     @IBAction func dragDownButtontapped(_ sender: UIButton) {
-        self.removeFromSuperview()
+        //self.removeFromSuperview()
+        self.tabBarDelegate?.minimizeTrackDetailController()
     }
     
     @IBAction func handleCurrentTime(_ sender: UISlider) {
