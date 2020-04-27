@@ -151,7 +151,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bP-rX-hqD">
-                                    <rect key="frame" x="118" y="80" width="118" height="57"/>
+                                    <rect key="frame" x="118" y="89.5" width="118" height="38"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" image="pause"/>
                                     <connections>
@@ -233,6 +233,6 @@
         <image name="Image" width="54.333332061767578" height="54.333332061767578"/>
         <image name="Left" width="34" height="20"/>
         <image name="Right" width="34" height="20"/>
-        <image name="pause" width="57" height="57"/>
+        <image name="pause" width="38" height="38"/>
     </resources>
 </document>
