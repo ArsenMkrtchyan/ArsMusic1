@@ -74,6 +74,7 @@ class TrackDetailView: UIView{
     private func setupGesture() {
         miniTrackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximized)))
         miniTrackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlDismissPan)))
     }
     
     private func playTrack(previewUrl: String?) {
@@ -90,10 +91,7 @@ class TrackDetailView: UIView{
     }
     @objc private func handlePan(gestures:UIPanGestureRecognizer) {
         
-        switch gestures.state {
-        
-        case .began:
-            print("bigin")
+        switch gestures.state { 
         case .changed:
             handlePanChanged(gesture: gestures)
         case .ended:
@@ -101,6 +99,24 @@ class TrackDetailView: UIView{
         
         default:
             print("gestures error")
+        }
+    }
+    @objc private func handlDismissPan(gestures:UIPanGestureRecognizer) {
+        switch gestures.state {
+        case .changed:
+            let translation = gestures.translation(in: self.superview)
+            maximizeStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        case .ended:
+            let translation = gestures.translation(in: self.superview)
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+                self.maximizeStackView.transform = .identity
+                if translation.y > 50  {
+                    self.tabBarDelegate?.minimizeTrackDetailController()
+                }
+            }, completion: nil)
+        default:
+            print("handlDismissPan switch")
         }
     }
     
