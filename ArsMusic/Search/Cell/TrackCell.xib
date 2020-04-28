@@ -40,7 +40,32 @@
                         <color key="textColor" red="0.56862745098039214" green="0.56862745098039214" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrf-Jk-e1c">
+                        <rect key="frame" x="374" y="34" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="OPR-HO-4ga"/>
+                            <constraint firstAttribute="height" constant="16" id="U6K-my-ln2"/>
+                        </constraints>
+                        <color key="tintColor" red="0.92133218049999999" green="0.0" blue="0.29319081029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal" image="Add"/>
+                        <connections>
+                            <action selector="addtTrackAction:" destination="PTj-f9-t8a" eventType="touchUpInside" id="kPQ-11-Rxz"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjK-U2-82b">
+                        <rect key="frame" x="356" y="3" width="30" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="look"/>
+                        <connections>
+                            <action selector="lookWhatWeWhontAdd:" destination="PTj-f9-t8a" eventType="touchUpInside" id="sQz-26-kcG"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qrf-Jk-e1c" secondAttribute="trailing" constant="24" id="18a-l6-XjU"/>
+                    <constraint firstItem="qrf-Jk-e1c" firstAttribute="top" secondItem="sj0-oX-Rw1" secondAttribute="top" constant="34" id="3jX-fC-mtn"/>
+                    <constraint firstAttribute="bottom" secondItem="qrf-Jk-e1c" secondAttribute="bottom" constant="34" id="cY2-1J-1Xa"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="artistName" destination="Ha7-vv-Qhu" id="sBm-ix-2xt"/>
@@ -51,4 +76,7 @@
             <point key="canvasLocation" x="66.666666666666671" y="67.633928571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Add" width="16" height="16"/>
+    </resources>
 </document>

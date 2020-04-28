@@ -17,8 +17,10 @@ protocol TrackCellViewModel {
 }
 
 class TrackCell: UITableViewCell {
-    static let reusleId = "TrackCell"
     
+    static let reusleId = "TrackCell"
+    var cell: SearchViewModel.Cell?
+
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var collectinName: UILabel!
@@ -33,12 +35,36 @@ class TrackCell: UITableViewCell {
         treckImageView.image = nil
     }
     
-    func set(viewModel: TrackCellViewModel) {
+    func set(viewModel: SearchViewModel.Cell) {
+        self.cell = viewModel
         artistName.text = viewModel.trackName
         trackName.text = viewModel.artistName
         collectinName.text = viewModel.collectinName
         
         guard let url = URL(string: viewModel.iconUrlString ?? "") else { return }
         treckImageView.sd_setImage(with: url, completed: nil)
+    }
+    
+    @IBAction func addtTrackAction(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        if let saveData = try? NSKeyedArchiver.archivedData(withRootObject: cell!, requiringSecureCoding: false) {
+            defaults.set(saveData, forKey: "tracks")
+            print("saved corect")
+        }
+        
+        
+        
+    }
+    @IBAction func lookWhatWeWhontAdd(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        if let saveData = defaults.object(forKey: "tracks") as? Data {
+            if let decodedTrack = try? NSKeyedUnarchiver
+                .unarchiveTopLevelObjectWithData(saveData)
+                as? SearchViewModel.Cell {
+                print(decodedTrack.artistName)
+            }
+            
+    }
     }
 }
