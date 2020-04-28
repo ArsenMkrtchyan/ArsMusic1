@@ -69,17 +69,4 @@ class TrackCell: UITableViewCell {
         }
         
     }
-    @IBAction func lookWhatWeWhontAdd(_ sender: Any) {
-        let defaults = UserDefaults.standard
-        if let saveData = defaults.object(forKey: UserDefaults.favouriteTrackKey) as? Data {
-            if let decodedTrack = try? NSKeyedUnarchiver
-                .unarchiveTopLevelObjectWithData(saveData)
-                as? [SearchViewModel.Cell] {
-                decodedTrack.map{ (treck) in
-                    print(treck.trackName)
-                }
-            }
-            
-    }
-    }
 }

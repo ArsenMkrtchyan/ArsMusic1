@@ -9,7 +9,10 @@
 import SwiftUI
 import URLImage
 struct Library: View {
-    var tracks = UserDefaults.standard.savedTracks()
+    @State var tracks = UserDefaults.standard.savedTracks()
+    @State var showingAlert = false
+    @State private var track: SearchViewModel.Cell!
+    var tapBarDelegate: MainTabBarControllerDeledate?
     
     var body: some View {
         NavigationView {
@@ -18,7 +21,8 @@ struct Library: View {
                     
                     HStack(spacing:20) {
                         Button(action: {
-                            print("aas")
+                            self.track = self.tracks.first
+                            self.tapBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
                         }, label: {
                             Image(systemName: "play.fill")
                                 .frame(width: gemoetry.size.width / 2 - 25, height: 50)
@@ -27,7 +31,7 @@ struct Library: View {
                                 .cornerRadius(10)
                         })
                         Button(action: {
-                            print("aas")
+                            self.tracks = UserDefaults.standard.savedTracks()
                         }, label: {
                             Image(systemName: "arrow.2.circlepath")
                                 .frame(width: gemoetry.size.width / 2 - 25, height: 50)
@@ -39,13 +43,48 @@ struct Library: View {
                 }.padding().frame(height: 50)
                 Divider().padding(.leading).padding(.trailing)
                 
-                List(tracks) { track in
-                    LibraryCell(cell:track)
+                List {
+                    ForEach(tracks) { track in
+                        LibraryCell(cell:track).gesture(
+                            LongPressGesture()
+                                .onEnded{ _ in
+                            self.showingAlert = true
+                            self.track = track
+                        }.simultaneously(with: TapGesture()
+                            .onEnded{ _ in
+                            self.track = track
+                            self.tapBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
+                            
+                        }))
+                    }.onDelete(perform: deleteTrack)
+                    
                 }
-            }
-            .navigationBarTitle("Library")
+            }.actionSheet(isPresented: $showingAlert, content: {
+                ActionSheet(title:Text("Are you sure you want to delate track?"),
+                            buttons: [.destructive(Text("Delete"), action: {
+                                self.deleteTrack(track: self.track)
+                            }),.cancel()
+                ])
+            })
+                .navigationBarTitle("Library")
         }
         
+    }
+    func deleteTrack(at offsets: IndexSet) {
+        tracks.remove(atOffsets: offsets)
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: tracks, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: UserDefaults.favouriteTrackKey)
+        }
+    }
+    func deleteTrack(track: SearchViewModel.Cell) {
+        let index = tracks.firstIndex(of: track)
+        guard let myIndex = index else { return }
+        self.tracks.remove(at: myIndex)
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: tracks, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: UserDefaults.favouriteTrackKey)
+        }
     }
 }
 

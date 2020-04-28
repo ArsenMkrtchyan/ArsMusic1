@@ -28,7 +28,8 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3636507094, alpha: 1)
         setupTrackDetailView()
         searchVC.tabBarDelagate = self
-        let library = Library()
+        var library = Library()
+        library.tapBarDelegate = self
         let hostVC = UIHostingController(rootView: library)
         hostVC.tabBarItem.image = #imageLiteral(resourceName: "ios10-apple-music-library-5nav-icon")
         hostVC.tabBarItem.title = "Library"
