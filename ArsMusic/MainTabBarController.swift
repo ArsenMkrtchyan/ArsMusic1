@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 protocol MainTabBarControllerDeledate: class {
     func minimizeTrackDetailController()
     func maximizeTrackDetailController(viewModel:SearchViewModel.Cell?)
@@ -28,10 +28,15 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3636507094, alpha: 1)
         setupTrackDetailView()
         searchVC.tabBarDelagate = self
+        let library = Library()
+        let hostVC = UIHostingController(rootView: library)
+        hostVC.tabBarItem.image = #imageLiteral(resourceName: "ios10-apple-music-library-5nav-icon")
+        hostVC.tabBarItem.title = "Library"
         
         viewControllers = [
-            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Search"),
-            generateViewController(rootViewController: ViewController(), image: #imageLiteral(resourceName: "ios10-apple-music-library-5nav-icon"), title: "Library")
+            hostVC,
+            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Search")
+            
         ]
     }
     

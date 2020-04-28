@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		92D63C4177C42E6BD410A7B1 /* Pods_ArsMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90A45F6F4DFFCD4516C8311 /* Pods_ArsMusic.framework */; };
 		B7D7D7292D22B9A5BA1758D7 /* Pods_ArsMusicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4A2529C3792E8B84B71294 /* Pods_ArsMusicTests.framework */; };
+		F35F875A24580CB700DA5559 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F875924580CB700DA5559 /* Library.swift */; };
 		F3686ECE24543E1200ADF04F /* CMTime + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3686ECD24543E1200ADF04F /* CMTime + Extension.swift */; };
 		F3686ED024556B7700ADF04F /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3686ECF24556B7700ADF04F /* Nib.swift */; };
 		F3A89CC2244E0D4B00CE521A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A89CC1244E0D4B00CE521A /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		7BBBD1EB7627523E7390138B /* Pods-ArsMusicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArsMusicTests.release.xcconfig"; path = "Target Support Files/Pods-ArsMusicTests/Pods-ArsMusicTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9A6A55F3953CB2257B4AB33 /* Pods-ArsMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArsMusic.debug.xcconfig"; path = "Target Support Files/Pods-ArsMusic/Pods-ArsMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		E90A45F6F4DFFCD4516C8311 /* Pods_ArsMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArsMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F35F875924580CB700DA5559 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		F3686ECD24543E1200ADF04F /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
 		F3686ECF24556B7700ADF04F /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		F3A89CBE244E0D4B00CE521A /* ArsMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArsMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +211,7 @@
 			children = (
 				F3A89D27245096AB00CE521A /* Models */,
 				F3A89CFD244F2BA700CE521A /* NetworkService.swift */,
+				F35F875924580CB700DA5559 /* Library.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -319,7 +322,7 @@
 				};
 			};
 			buildConfigurationList = F3A89CB9244E0D4B00CE521A /* Build configuration list for PBXProject "ArsMusic" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -446,6 +449,7 @@
 				F3A89CC4244E0D4B00CE521A /* SceneDelegate.swift in Sources */,
 				F3A89D16244F6FBD00CE521A /* SearchPresenter.swift in Sources */,
 				F3A89CFE244F2BA700CE521A /* NetworkService.swift in Sources */,
+				F35F875A24580CB700DA5559 /* Library.swift in Sources */,
 				F3A89D2F2451B66C00CE521A /* TrackDetailView.swift in Sources */,
 				F3A89D202450463200CE521A /* UIViewController + Storybord.swift in Sources */,
 			);
@@ -539,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -593,7 +597,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
