@@ -68,6 +68,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addButton" destination="qrf-Jk-e1c" id="Ct8-KV-rb0"/>
                 <outlet property="artistName" destination="Ha7-vv-Qhu" id="sBm-ix-2xt"/>
                 <outlet property="collectinName" destination="T1t-dn-7ZX" id="nfR-at-5uY"/>
                 <outlet property="trackName" destination="3Lw-KD-tkm" id="vGv-UG-bak"/>

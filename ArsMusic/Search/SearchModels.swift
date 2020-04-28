@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 enum Search {
    
   enum Model {
@@ -42,7 +42,7 @@ class SearchViewModel:NSObject, NSCoding {
     }
     
     
-    @objc(_TtCC8ArsMusic15SearchViewModel4Cell)class Cell:NSObject,NSCoding {
+    @objc(_TtCC8ArsMusic15SearchViewModel4Cell)class Cell:NSObject,NSCoding,Identifiable {
         
         
         var iconUrlString: String?
