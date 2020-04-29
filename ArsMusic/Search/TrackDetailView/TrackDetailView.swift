@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import AVKit
 
-protocol TrackMoviesDelegate: class {
+protocol TrackMoviesDelegate {
     func moveBackForPreviusTrack() -> SearchViewModel.Cell?
     func moveForwordForPreviusTrack() -> SearchViewModel.Cell?
 }
@@ -32,7 +32,7 @@ class TrackDetailView: UIView{
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
     
-    weak var delagate: TrackMoviesDelegate?
+    var delagate: TrackMoviesDelegate?
     weak var tabBarDelegate: MainTabBarControllerDeledate?
     let player: AVPlayer = {
         let avPlayer = AVPlayer()

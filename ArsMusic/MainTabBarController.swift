@@ -34,6 +34,7 @@ class MainTabBarController: UITabBarController {
         hostVC.tabBarItem.image = #imageLiteral(resourceName: "ios10-apple-music-library-5nav-icon")
         hostVC.tabBarItem.title = "Library"
         
+        
         viewControllers = [
             hostVC,
             generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Search")

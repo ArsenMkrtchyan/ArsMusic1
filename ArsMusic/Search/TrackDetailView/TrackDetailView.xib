@@ -167,6 +167,7 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nOg-Sf-PCb">
                             <rect key="frame" x="0.0" y="776" width="398" height="17"/>
@@ -196,7 +197,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Kvx-Od-pvo" firstAttribute="leading" secondItem="KdV-k6-1Io" secondAttribute="leading" id="1qn-PH-woK"/>
                 <constraint firstItem="KdV-k6-1Io" firstAttribute="trailing" secondItem="Kvx-Od-pvo" secondAttribute="trailing" id="5In-hY-DrK"/>

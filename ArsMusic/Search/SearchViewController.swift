@@ -52,8 +52,21 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     setupSearchBar()
     setupTableView()
     searchBar(searchController.searchBar, textDidChange: "sia")
-  }
     
+  }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let kayWindow = UIApplication.shared.connectedScenes.filter({
+            $0.activationState == .foregroundActive
+        }).map({
+            $0 as? UIWindowScene
+        }).compactMap({$0}).first?.windows.filter({
+            $0.isKeyWindow
+        }).first
+        
+        let tapBarVC = kayWindow?.rootViewController as? MainTabBarController
+        tapBarVC?.trackDetailView.delagate = self
+    }
     private func setupSearchBar(){
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -108,6 +121,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let cellViewModel = searchViewModel.cells[indexPath.row]
         self.tabBarDelagate?.maximizeTrackDetailController(viewModel: cellViewModel)
     }

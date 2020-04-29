@@ -52,6 +52,17 @@ struct Library: View {
                             self.track = track
                         }.simultaneously(with: TapGesture()
                             .onEnded{ _ in
+                               // let kayWindow = UIApplication.shared.windows.last
+                                let kayWindow = UIApplication.shared.connectedScenes.filter({
+                                    $0.activationState == .foregroundActive
+                                }).map({
+                                    $0 as? UIWindowScene
+                                }).compactMap({$0}).first?.windows.filter({
+                                    $0.isKeyWindow
+                                }).first
+                                
+                                let tapBarVC = kayWindow?.rootViewController as? MainTabBarController
+                                tapBarVC?.trackDetailView.delagate = self
                             self.track = track
                             self.tapBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
                             
@@ -65,11 +76,12 @@ struct Library: View {
                                 self.deleteTrack(track: self.track)
                             }),.cancel()
                 ])
-            })
+                })
                 .navigationBarTitle("Library")
         }
         
     }
+    
     func deleteTrack(at offsets: IndexSet) {
         tracks.remove(atOffsets: offsets)
         if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: tracks, requiringSecureCoding: false) {
@@ -110,3 +122,34 @@ struct Library_Previews: PreviewProvider {
     }
 }
 
+extension Library: TrackMoviesDelegate {
+    func moveBackForPreviusTrack() -> SearchViewModel.Cell? {
+        let index = tracks.firstIndex(of: track)
+        guard let myIndex = index else { return nil }
+        
+        var nextTrack: SearchViewModel.Cell
+        if myIndex - 1 == -1  {
+            nextTrack = tracks[tracks.count - 1]
+        }else {
+            nextTrack = tracks[myIndex - 1]
+        }
+        self.track = nextTrack
+        return nextTrack
+    }
+    
+    func moveForwordForPreviusTrack() -> SearchViewModel.Cell? {
+        let index = tracks.firstIndex(of: track)
+        guard let myIndex = index else { return nil }
+        
+        var nextTrack: SearchViewModel.Cell
+        if myIndex + 1 == tracks.count {
+            nextTrack = tracks[0]
+        }else {
+            nextTrack = tracks[myIndex + 1]
+        }
+        self.track = nextTrack
+        return nextTrack
+    }
+    
+    
+}
