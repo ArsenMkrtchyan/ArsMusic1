@@ -18,6 +18,7 @@ class MainTabBarController: UITabBarController {
     
     let searchVC: SearchViewController = SearchViewController.loadFromStorybord()
     let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
+    //let webVC: WebViewController = WebViewController.loadFromStorybord()
     private var minimaizedTopAnchorConstraint: NSLayoutConstraint!
     private var maximaizedTopAnchorConstraint: NSLayoutConstraint!
     private var bottomAnchorConstraint:NSLayoutConstraint!
@@ -33,11 +34,13 @@ class MainTabBarController: UITabBarController {
         let hostVC = UIHostingController(rootView: library)
         hostVC.tabBarItem.image = #imageLiteral(resourceName: "ios10-apple-music-library-5nav-icon")
         hostVC.tabBarItem.title = "Library"
-        
-        
+        let webVC = WebViewController()
+        webVC.tabBarItem.title = "Web Search"
+        webVC.tabBarItem.image = #imageLiteral(resourceName: "Add")
         viewControllers = [
             hostVC,
-            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Search")
+            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Search"),
+            webVC
             
         ]
     }

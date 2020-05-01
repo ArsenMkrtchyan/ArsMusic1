@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		92D63C4177C42E6BD410A7B1 /* Pods_ArsMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90A45F6F4DFFCD4516C8311 /* Pods_ArsMusic.framework */; };
 		B7D7D7292D22B9A5BA1758D7 /* Pods_ArsMusicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4A2529C3792E8B84B71294 /* Pods_ArsMusicTests.framework */; };
+		F359313C245C0CDA00BDF7A4 /* WebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593135245C0CDA00BDF7A4 /* WebPresenter.swift */; };
+		F359313D245C0CDA00BDF7A4 /* WebWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593136245C0CDA00BDF7A4 /* WebWorker.swift */; };
+		F359313E245C0CDA00BDF7A4 /* WebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593137245C0CDA00BDF7A4 /* WebRouter.swift */; };
+		F359313F245C0CDA00BDF7A4 /* WebModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593138245C0CDA00BDF7A4 /* WebModels.swift */; };
+		F3593140245C0CDA00BDF7A4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593139245C0CDA00BDF7A4 /* WebViewController.swift */; };
+		F3593141245C0CDA00BDF7A4 /* WebInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */; };
+		F3593142245C0CDA00BDF7A4 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F359313B245C0CDA00BDF7A4 /* WebViewController.xib */; };
 		F35F875A24580CB700DA5559 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F875924580CB700DA5559 /* Library.swift */; };
 		F35F875C24584EF000DA5559 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F875B24584EF000DA5559 /* UserDefaults.swift */; };
 		F35F875F245861FB00DA5559 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = F35F875E245861FB00DA5559 /* URLImage */; };
@@ -69,6 +76,13 @@
 		7BBBD1EB7627523E7390138B /* Pods-ArsMusicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArsMusicTests.release.xcconfig"; path = "Target Support Files/Pods-ArsMusicTests/Pods-ArsMusicTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9A6A55F3953CB2257B4AB33 /* Pods-ArsMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArsMusic.debug.xcconfig"; path = "Target Support Files/Pods-ArsMusic/Pods-ArsMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		E90A45F6F4DFFCD4516C8311 /* Pods_ArsMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArsMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3593135245C0CDA00BDF7A4 /* WebPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPresenter.swift; sourceTree = "<group>"; };
+		F3593136245C0CDA00BDF7A4 /* WebWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebWorker.swift; sourceTree = "<group>"; };
+		F3593137245C0CDA00BDF7A4 /* WebRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRouter.swift; sourceTree = "<group>"; };
+		F3593138245C0CDA00BDF7A4 /* WebModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModels.swift; sourceTree = "<group>"; };
+		F3593139245C0CDA00BDF7A4 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebInteractor.swift; sourceTree = "<group>"; };
+		F359313B245C0CDA00BDF7A4 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		F35F875924580CB700DA5559 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		F35F875B24584EF000DA5559 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F3686ECD24543E1200ADF04F /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
@@ -145,6 +159,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F31500622459C05000AE9353 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				F3593135245C0CDA00BDF7A4 /* WebPresenter.swift */,
+				F3593136245C0CDA00BDF7A4 /* WebWorker.swift */,
+				F3593137245C0CDA00BDF7A4 /* WebRouter.swift */,
+				F3593138245C0CDA00BDF7A4 /* WebModels.swift */,
+				F3593139245C0CDA00BDF7A4 /* WebViewController.swift */,
+				F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */,
+				F359313B245C0CDA00BDF7A4 /* WebViewController.xib */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		F3A89CB5244E0D4B00CE521A = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +224,7 @@
 		F3A89CFF244F6E0000CE521A /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				F31500622459C05000AE9353 /* WebView */,
 				F3A89D2B2451B61600CE521A /* TrackDetailView */,
 				F3A89D282451942100CE521A /* FooterView */,
 				F3A89D222450876700CE521A /* Cell */,
@@ -359,6 +388,7 @@
 				F3A89CCE244E0D5100CE521A /* LaunchScreen.storyboard in Resources */,
 				F3A89CCB244E0D5100CE521A /* Assets.xcassets in Resources */,
 				F3A89D242450879400CE521A /* TrackCell.xib in Resources */,
+				F3593142245C0CDA00BDF7A4 /* WebViewController.xib in Resources */,
 				F3A89D1E2450421900CE521A /* SearchViewController.storyboard in Resources */,
 				F3A89D2D2451B65200CE521A /* TrackDetailView.xib in Resources */,
 				F3A89CC9244E0D4B00CE521A /* Main.storyboard in Resources */,
@@ -444,14 +474,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A89CC6244E0D4B00CE521A /* ViewController.swift in Sources */,
+				F359313E245C0CDA00BDF7A4 /* WebRouter.swift in Sources */,
 				F3A89CC2244E0D4B00CE521A /* AppDelegate.swift in Sources */,
 				F3A89CFC244F05F300CE521A /* SearchResponse.swift in Sources */,
 				F3A89D1B244F6FBD00CE521A /* SearchInteractor.swift in Sources */,
 				F3A89D26245087B800CE521A /* TrackCell.swift in Sources */,
+				F359313F245C0CDA00BDF7A4 /* WebModels.swift in Sources */,
 				F35F875C24584EF000DA5559 /* UserDefaults.swift in Sources */,
 				F3A89D2A2451944A00CE521A /* FooterView.swift in Sources */,
 				F3686ECE24543E1200ADF04F /* CMTime + Extension.swift in Sources */,
 				F3A89CE6244E125400CE521A /* SearchMusicViewControoler.swift in Sources */,
+				F3593140245C0CDA00BDF7A4 /* WebViewController.swift in Sources */,
 				F3686ED024556B7700ADF04F /* Nib.swift in Sources */,
 				F3A89CE4244E0D8200CE521A /* MainTabBarController.swift in Sources */,
 				F3A89D17244F6FBD00CE521A /* SearchWorker.swift in Sources */,
@@ -459,11 +492,14 @@
 				F3A89D18244F6FBD00CE521A /* SearchRouter.swift in Sources */,
 				F3A89D19244F6FBD00CE521A /* SearchModels.swift in Sources */,
 				F3A89CC4244E0D4B00CE521A /* SceneDelegate.swift in Sources */,
+				F3593141245C0CDA00BDF7A4 /* WebInteractor.swift in Sources */,
 				F3A89D16244F6FBD00CE521A /* SearchPresenter.swift in Sources */,
 				F3A89CFE244F2BA700CE521A /* NetworkService.swift in Sources */,
 				F35F875A24580CB700DA5559 /* Library.swift in Sources */,
 				F3A89D2F2451B66C00CE521A /* TrackDetailView.swift in Sources */,
 				F3A89D202450463200CE521A /* UIViewController + Storybord.swift in Sources */,
+				F359313C245C0CDA00BDF7A4 /* WebPresenter.swift in Sources */,
+				F359313D245C0CDA00BDF7A4 /* WebWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

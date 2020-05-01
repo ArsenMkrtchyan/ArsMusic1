@@ -51,7 +51,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     setup()
     setupSearchBar()
     setupTableView()
-    searchBar(searchController.searchBar, textDidChange: "sia")
+    //searchBar(searchController.searchBar, textDidChange: "sia")
     
   }
     override func viewWillAppear(_ animated: Bool) {
