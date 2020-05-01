@@ -8,6 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController">
             <connections>
+                <outlet property="activityIndicator" destination="5DM-ae-0a7" id="uAS-eh-29r"/>
+                <outlet property="goBack" destination="dqk-p6-pf6" id="uVQ-fA-DqH"/>
+                <outlet property="searchBar" destination="3J6-Su-rIy" id="OF1-zc-veh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="T2C-zL-GX5"/>
             </connections>
         </placeholder>
@@ -43,11 +46,23 @@
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqk-p6-pf6">
                             <rect key="frame" x="0.0" y="776" width="414" height="44"/>
                             <items>
-                                <barButtonItem title="Item" id="HZi-Pf-cWo"/>
-                                <barButtonItem title="Item" id="ijH-gl-gUd"/>
+                                <barButtonItem title="Item" image="backward" catalog="system" id="HZi-Pf-cWo"/>
+                                <barButtonItem title="Item" image="forward" catalog="system" id="ijH-gl-gUd">
+                                    <connections>
+                                        <action selector="goForword:" destination="-1" id="UXa-Ah-Doj"/>
+                                    </connections>
+                                </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="SkY-cr-Fhf"/>
-                                <barButtonItem title="Item" id="oZs-EY-xIM"/>
-                                <barButtonItem title="Item" id="mww-jS-Hfg"/>
+                                <barButtonItem systemItem="refresh" id="oZs-EY-xIM">
+                                    <connections>
+                                        <action selector="refresh:" destination="-1" id="eXZ-FF-lnF"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="stop" id="mww-jS-Hfg">
+                                    <connections>
+                                        <action selector="stop:" destination="-1" id="UgE-7g-i27"/>
+                                    </connections>
+                                </barButtonItem>
                             </items>
                         </toolbar>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Toi-xA-fPR">
@@ -60,6 +75,9 @@
                                         <constraint firstAttribute="height" constant="80" id="vfL-4f-JGU"/>
                                     </constraints>
                                     <state key="normal" image="google"/>
+                                    <connections>
+                                        <action selector="googleButton:" destination="-1" eventType="touchUpInside" id="BD8-kp-Tdv"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIr-rr-xMj">
                                     <rect key="frame" x="100" y="0.0" width="80" height="80"/>
@@ -67,6 +85,9 @@
                                         <constraint firstAttribute="width" constant="80" id="5Bx-FT-ltg"/>
                                     </constraints>
                                     <state key="normal" image="vk"/>
+                                    <connections>
+                                        <action selector="vkButton:" destination="-1" eventType="touchUpInside" id="oaw-HD-K6k"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsQ-Mf-rYI">
                                     <rect key="frame" x="200" y="0.0" width="80" height="80"/>
@@ -74,6 +95,9 @@
                                         <constraint firstAttribute="width" constant="80" id="JaW-gN-xdR"/>
                                     </constraints>
                                     <state key="normal" image="youtube"/>
+                                    <connections>
+                                        <action selector="youtubeButton:" destination="-1" eventType="touchUpInside" id="8C7-Kh-AEt"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-t7-DXt">
                                     <rect key="frame" x="300" y="0.0" width="80" height="80"/>
@@ -81,6 +105,9 @@
                                         <constraint firstAttribute="width" constant="80" id="bAF-Pv-sYJ"/>
                                     </constraints>
                                     <state key="normal" image="instagram"/>
+                                    <connections>
+                                        <action selector="instagramButton:" destination="-1" eventType="touchUpInside" id="cq7-ml-H8u"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -91,6 +118,34 @@
                                 <constraint firstAttribute="width" constant="30" id="l8b-bw-H9O"/>
                             </constraints>
                         </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByA-Px-On9">
+                            <rect key="frame" x="30" y="203" width="58" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Youtube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe7-9N-okb">
+                            <rect key="frame" x="228" y="203" width="67" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vk.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgV-Zl-CoV">
+                            <rect key="frame" x="122" y="203" width="61" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVK-lp-Gfu">
+                            <rect key="frame" x="320" y="202" width="77" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -125,6 +180,8 @@
         </view>
     </objects>
     <resources>
+        <image name="backward" catalog="system" width="128" height="79"/>
+        <image name="forward" catalog="system" width="128" height="79"/>
         <image name="google" width="294" height="299.5"/>
         <image name="instagram" width="112.5" height="112.5"/>
         <image name="vk" width="112.5" height="112.5"/>

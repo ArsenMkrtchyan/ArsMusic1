@@ -14,7 +14,9 @@ protocol WebDisplayLogic: class {
 
 class WebViewController: UIViewController, WebDisplayLogic {
 
-  var interactor: WebBusinessLogic?
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var interactor: WebBusinessLogic?
   var router: (NSObjectProtocol & WebRoutingLogic)?
 
   // MARK: Object lifecycle
@@ -52,7 +54,26 @@ class WebViewController: UIViewController, WebDisplayLogic {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
-  
+  // MARK: Auctions
+    
+    @IBAction func googleButton(_ sender: Any) {
+    }
+    
+    @IBAction func vkButton(_ sender: Any) {
+    }
+    @IBAction func youtubeButton(_ sender: Any) {
+    }
+    @IBAction func instagramButton(_ sender: Any) {
+    }
+    @IBOutlet weak var goBack: UIToolbar!
+    
+    @IBAction func goForword(_ sender: Any) {
+    }
+    @IBAction func refresh(_ sender: Any) {
+    }
+    @IBAction func stop(_ sender: Any) {
+    }
+    
   func displayData(viewModel: Web.Model.ViewModel.ViewModelData) {
 
   }
