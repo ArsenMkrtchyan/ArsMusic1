@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController">
             <connections>
-                <outlet property="activityIndicator" destination="5DM-ae-0a7" id="uAS-eh-29r"/>
+                <outlet property="activityIndicator" destination="qEg-ES-nn0" id="9U8-Eq-CvO"/>
                 <outlet property="searchBar" destination="3J6-Su-rIy" id="OF1-zc-veh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="T2C-zL-GX5"/>
                 <outlet property="webView" destination="5IT-8g-pBS" id="bjC-ge-WAS"/>
@@ -115,13 +115,6 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5DM-ae-0a7">
-                            <rect key="frame" x="197" y="421" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="boI-CB-HwC"/>
-                                <constraint firstAttribute="width" constant="30" id="l8b-bw-H9O"/>
-                            </constraints>
-                        </activityIndicatorView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByA-Px-On9">
                             <rect key="frame" x="30" y="203" width="58" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -158,6 +151,10 @@
                                 <wkPreferences key="preferences"/>
                             </wkWebViewConfiguration>
                         </wkWebView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qEg-ES-nn0">
+                            <rect key="frame" x="197" y="430" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -166,12 +163,10 @@
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="top" secondItem="zRH-4Z-6La" secondAttribute="top" constant="115" id="5A5-kW-rcs"/>
                         <constraint firstItem="dqk-p6-pf6" firstAttribute="top" secondItem="5IT-8g-pBS" secondAttribute="bottom" id="5Jy-tj-Q1r"/>
                         <constraint firstItem="5IT-8g-pBS" firstAttribute="leading" secondItem="zRH-4Z-6La" secondAttribute="leading" id="6sR-oe-XCr"/>
-                        <constraint firstItem="5DM-ae-0a7" firstAttribute="leading" secondItem="zRH-4Z-6La" secondAttribute="leading" constant="197" id="8dq-Mh-sjs"/>
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="top" secondItem="3J6-Su-rIy" secondAttribute="bottom" constant="11" id="AGQ-SA-eKQ"/>
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="centerX" secondItem="zRH-4Z-6La" secondAttribute="centerX" id="KKx-q4-Uz5"/>
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="centerX" secondItem="3J6-Su-rIy" secondAttribute="centerX" id="Ny5-cq-1CM"/>
                         <constraint firstItem="dqk-p6-pf6" firstAttribute="leading" secondItem="F0S-sf-IKf" secondAttribute="leading" id="RCA-NY-4HU"/>
-                        <constraint firstItem="5DM-ae-0a7" firstAttribute="top" secondItem="zRH-4Z-6La" secondAttribute="top" constant="421" id="S2I-CD-sBq"/>
                         <constraint firstAttribute="trailing" secondItem="F0S-sf-IKf" secondAttribute="trailing" id="T95-C2-kf9"/>
                         <constraint firstItem="F0S-sf-IKf" firstAttribute="top" secondItem="zRH-4Z-6La" secondAttribute="top" id="VHM-NN-eqW"/>
                         <constraint firstItem="5IT-8g-pBS" firstAttribute="top" secondItem="3J6-Su-rIy" secondAttribute="bottom" id="guq-Ij-Ojr"/>

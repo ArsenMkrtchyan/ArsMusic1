@@ -66,6 +66,7 @@ class WebViewController: UIViewController, WebDisplayLogic {
         searchBar.delegate = self
         searchBar.backgroundColor = .white
         searchBar.placeholder = "Select the web site"
+        searchBar.setShowsCancelButton(true, animated: true)
         
     }
     
@@ -132,11 +133,16 @@ extension WebViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         webView.isHidden = false
+        view.endEditing(true)
         request(url: searchBar.text)
         
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         webView.isHidden = true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) { // 2
+        webView.isHidden = false
+        view.endEditing(true)
     }
     
 }

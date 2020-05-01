@@ -36,10 +36,10 @@ class MainTabBarController: UITabBarController {
         hostVC.tabBarItem.title = "Library"
         let webVC = WebViewController()
         webVC.tabBarItem.title = "Web Search"
-        webVC.tabBarItem.image = #imageLiteral(resourceName: "Add")
+        webVC.tabBarItem.image = #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon")
         viewControllers = [
             hostVC,
-            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Search"),
+            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "Add"), title: "Apple"),
             webVC
             
         ]
