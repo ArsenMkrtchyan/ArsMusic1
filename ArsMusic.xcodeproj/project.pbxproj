@@ -16,6 +16,7 @@
 		F3593140245C0CDA00BDF7A4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593139245C0CDA00BDF7A4 /* WebViewController.swift */; };
 		F3593141245C0CDA00BDF7A4 /* WebInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */; };
 		F3593142245C0CDA00BDF7A4 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F359313B245C0CDA00BDF7A4 /* WebViewController.xib */; };
+		F3593144245C171300BDF7A4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3593143245C171300BDF7A4 /* WebKit.framework */; };
 		F35F875A24580CB700DA5559 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F875924580CB700DA5559 /* Library.swift */; };
 		F35F875C24584EF000DA5559 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F875B24584EF000DA5559 /* UserDefaults.swift */; };
 		F35F875F245861FB00DA5559 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = F35F875E245861FB00DA5559 /* URLImage */; };
@@ -83,6 +84,7 @@
 		F3593139245C0CDA00BDF7A4 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebInteractor.swift; sourceTree = "<group>"; };
 		F359313B245C0CDA00BDF7A4 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		F3593143245C171300BDF7A4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F35F875924580CB700DA5559 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		F35F875B24584EF000DA5559 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F3686ECD24543E1200ADF04F /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			files = (
 				F35F875F245861FB00DA5559 /* URLImage in Frameworks */,
 				92D63C4177C42E6BD410A7B1 /* Pods_ArsMusic.framework in Frameworks */,
+				F3593144245C171300BDF7A4 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +145,7 @@
 		431E3746909674DB1EEAC9C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3593143245C171300BDF7A4 /* WebKit.framework */,
 				E90A45F6F4DFFCD4516C8311 /* Pods_ArsMusic.framework */,
 				4F4A2529C3792E8B84B71294 /* Pods_ArsMusicTests.framework */,
 			);

@@ -9,9 +9,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController">
             <connections>
                 <outlet property="activityIndicator" destination="5DM-ae-0a7" id="uAS-eh-29r"/>
-                <outlet property="goBack" destination="dqk-p6-pf6" id="uVQ-fA-DqH"/>
                 <outlet property="searchBar" destination="3J6-Su-rIy" id="OF1-zc-veh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="T2C-zL-GX5"/>
+                <outlet property="webView" destination="5IT-8g-pBS" id="bjC-ge-WAS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -46,7 +46,11 @@
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqk-p6-pf6">
                             <rect key="frame" x="0.0" y="776" width="414" height="44"/>
                             <items>
-                                <barButtonItem title="Item" image="backward" catalog="system" id="HZi-Pf-cWo"/>
+                                <barButtonItem title="Item" image="backward" catalog="system" id="HZi-Pf-cWo">
+                                    <connections>
+                                        <action selector="goBack:" destination="-1" id="DZB-oF-0Cm"/>
+                                    </connections>
+                                </barButtonItem>
                                 <barButtonItem title="Item" image="forward" catalog="system" id="ijH-gl-gUd">
                                     <connections>
                                         <action selector="goForword:" destination="-1" id="UXa-Ah-Doj"/>
@@ -146,12 +150,22 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5IT-8g-pBS">
+                            <rect key="frame" x="0.0" y="104" width="414" height="672"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <wkWebViewConfiguration key="configuration">
+                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkPreferences key="preferences"/>
+                            </wkWebViewConfiguration>
+                        </wkWebView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="dqk-p6-pf6" firstAttribute="leading" secondItem="3J6-Su-rIy" secondAttribute="leading" id="1iW-ES-h37"/>
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="centerX" secondItem="dqk-p6-pf6" secondAttribute="centerX" id="32V-c6-99n"/>
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="top" secondItem="zRH-4Z-6La" secondAttribute="top" constant="115" id="5A5-kW-rcs"/>
+                        <constraint firstItem="dqk-p6-pf6" firstAttribute="top" secondItem="5IT-8g-pBS" secondAttribute="bottom" id="5Jy-tj-Q1r"/>
+                        <constraint firstItem="5IT-8g-pBS" firstAttribute="leading" secondItem="zRH-4Z-6La" secondAttribute="leading" id="6sR-oe-XCr"/>
                         <constraint firstItem="5DM-ae-0a7" firstAttribute="leading" secondItem="zRH-4Z-6La" secondAttribute="leading" constant="197" id="8dq-Mh-sjs"/>
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="top" secondItem="3J6-Su-rIy" secondAttribute="bottom" constant="11" id="AGQ-SA-eKQ"/>
                         <constraint firstItem="Toi-xA-fPR" firstAttribute="centerX" secondItem="zRH-4Z-6La" secondAttribute="centerX" id="KKx-q4-Uz5"/>
@@ -160,7 +174,9 @@
                         <constraint firstItem="5DM-ae-0a7" firstAttribute="top" secondItem="zRH-4Z-6La" secondAttribute="top" constant="421" id="S2I-CD-sBq"/>
                         <constraint firstAttribute="trailing" secondItem="F0S-sf-IKf" secondAttribute="trailing" id="T95-C2-kf9"/>
                         <constraint firstItem="F0S-sf-IKf" firstAttribute="top" secondItem="zRH-4Z-6La" secondAttribute="top" id="VHM-NN-eqW"/>
+                        <constraint firstItem="5IT-8g-pBS" firstAttribute="top" secondItem="3J6-Su-rIy" secondAttribute="bottom" id="guq-Ij-Ojr"/>
                         <constraint firstItem="F0S-sf-IKf" firstAttribute="leading" secondItem="zRH-4Z-6La" secondAttribute="leading" id="jAA-Jb-VfW"/>
+                        <constraint firstAttribute="trailing" secondItem="5IT-8g-pBS" secondAttribute="trailing" id="kXh-pq-ebe"/>
                         <constraint firstAttribute="bottom" secondItem="dqk-p6-pf6" secondAttribute="bottom" constant="42" id="kje-oX-pt5"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
