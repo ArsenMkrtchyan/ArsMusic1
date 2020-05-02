@@ -12,7 +12,10 @@ protocol SearchDisplayLogic: class {
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
 }
 
-class SearchViewController: UIViewController, SearchDisplayLogic {
+class SearchViewController: UIViewController, SearchDisplayLogic{
+
+    var number:Int?
+    var count: Int?
     
 
     var interactor: SearchBusinessLogic?
@@ -66,6 +69,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         
         let tapBarVC = kayWindow?.rootViewController as? MainTabBarController
         tapBarVC?.trackDetailView.delagate = self
+        
     }
     private func setupSearchBar(){
         navigationItem.searchController = searchController
@@ -98,6 +102,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        count = searchViewModel.cells.count
         return searchViewModel.cells.count
     }
     
@@ -121,9 +126,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        number = indexPath.row + 1
         let cellViewModel = searchViewModel.cells[indexPath.row]
         self.tabBarDelagate?.maximizeTrackDetailController(viewModel: cellViewModel)
+        
     }
     
     
@@ -148,6 +154,8 @@ extension SearchViewController: UISearchBarDelegate {
 }
 // MARK: - Track Movies Delegate
 extension SearchViewController: TrackMoviesDelegate {
+   
+    
     
     private func getTrack(isForwordTreack: Bool) -> SearchViewModel.Cell? {
         guard let indexPath = table.indexPathForSelectedRow else { return nil }
@@ -163,10 +171,12 @@ extension SearchViewController: TrackMoviesDelegate {
                if  nextIndexPath.row == -1 {
                 nextIndexPath.row = searchViewModel.cells.count - 1
                 
+                
                 }
         }
         
         table.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
+        number = nextIndexPath.row + 1
         let cellModelView = searchViewModel.cells[nextIndexPath.row]
         return cellModelView
         }
@@ -179,6 +189,12 @@ extension SearchViewController: TrackMoviesDelegate {
     func moveForwordForPreviusTrack() -> SearchViewModel.Cell? {
         return getTrack(isForwordTreack: true)
     }
-    
-    
+    var numberOfTracks: Int? {
+           return count
+       }
+       
+       var numberOfTrack: Int? {
+           return number
+       }
+
 }

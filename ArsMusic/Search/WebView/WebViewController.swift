@@ -80,6 +80,7 @@ class WebViewController: UIViewController, WebDisplayLogic {
         webView.isHidden = false
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
+        view.endEditing(true)
     }
     
     
@@ -133,14 +134,13 @@ extension WebViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         webView.isHidden = false
-        view.endEditing(true)
         request(url: searchBar.text)
         
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         webView.isHidden = true
     }
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) { // 2
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         webView.isHidden = false
         view.endEditing(true)
     }

@@ -102,7 +102,7 @@ extension MainTabBarController: MainTabBarControllerDeledate {
                }, completion: nil)
         
         guard let viewModel = viewModel else { return }
-        self.trackDetailView.set(viewModel: viewModel)
+        self.trackDetailView.set(viewModel: viewModel,number: nil)
     }
     
     func minimizeTrackDetailController() {

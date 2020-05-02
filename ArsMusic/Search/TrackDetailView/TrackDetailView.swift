@@ -13,10 +13,13 @@ import AVKit
 protocol TrackMoviesDelegate {
     func moveBackForPreviusTrack() -> SearchViewModel.Cell?
     func moveForwordForPreviusTrack() -> SearchViewModel.Cell?
+    var numberOfTracks: Int? {get}
+    var numberOfTrack: Int? {get}
 }
 
 class TrackDetailView: UIView{
     
+    @IBOutlet weak var numberOfTrack: UILabel!
     @IBOutlet weak var miniTrackView: UIView!
     @IBOutlet weak var miniTrackTitleLable: UILabel!
     @IBOutlet weak var miniTrackImageview: UIImageView!
@@ -33,6 +36,7 @@ class TrackDetailView: UIView{
     @IBOutlet weak var volumeSlider: UISlider!
     
     var delagate: TrackMoviesDelegate?
+    var tracks = UserDefaults.standard.savedTracks()
     weak var tabBarDelegate: MainTabBarControllerDeledate?
     let player: AVPlayer = {
         let avPlayer = AVPlayer()
@@ -48,12 +52,13 @@ class TrackDetailView: UIView{
         trackImage.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImage.layer.cornerRadius = 10
         setupGesture()
+        
         miniPlayPauseButtonb.imageEdgeInsets = .init(top: 11, left: 11, bottom: 11, right: 11)
         
     }
     // MARK: - Setup viewModel
     
-    func set(viewModel: SearchViewModel.Cell) {
+    func set(viewModel: SearchViewModel.Cell, number: Int?) {
         trackNameLable.text = viewModel.trackName
         trackNameLable.numberOfLines = 2
         miniTrackTitleLable.text = viewModel.trackName
@@ -61,6 +66,9 @@ class TrackDetailView: UIView{
         playTrack(previewUrl: viewModel.previewUrl)
         monitorStartTime()
         observeLayerCurrentTime()
+        if let mycount = delagate?.numberOfTracks,let mynumber = delagate?.numberOfTrack{
+        numberOfTrack.text = "\(mynumber) of \(mycount) "
+        }
         playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         miniPlayPauseButtonb.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
@@ -197,6 +205,8 @@ class TrackDetailView: UIView{
         //self.removeFromSuperview()
         self.tabBarDelegate?.minimizeTrackDetailController()
     }
+    @IBAction func listButton(_ sender: Any) {
+    }
     
     @IBAction func handleCurrentTime(_ sender: UISlider) {
         let persenteg = currentTimeSlider.value
@@ -213,12 +223,12 @@ class TrackDetailView: UIView{
     }
     @IBAction func previousTrack(_ sender: Any) {
         guard let cellViewModel = delagate?.moveBackForPreviusTrack() else { return }
-        self.set(viewModel: cellViewModel)
+        self.set(viewModel: cellViewModel,number: nil)
     }
     
     @IBAction func nextTrack(_ sender: Any) {
         guard let cellViewModel = delagate?.moveForwordForPreviusTrack() else { return }
-        self.set(viewModel: cellViewModel)
+        self.set(viewModel: cellViewModel,number: nil)
     }
     
     @IBAction func playPauseAction(_ sender: Any) {

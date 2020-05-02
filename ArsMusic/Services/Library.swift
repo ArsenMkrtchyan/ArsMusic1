@@ -8,9 +8,13 @@
 
 import SwiftUI
 import URLImage
-struct Library: View {
+
+
+struct Library: View{
+ 
     @State var tracks = UserDefaults.standard.savedTracks()
     @State var showingAlert = false
+    @State var number: Int?
     @State private var track: SearchViewModel.Cell!
     var tapBarDelegate: MainTabBarControllerDeledate?
     
@@ -64,6 +68,7 @@ struct Library: View {
                                 let tapBarVC = kayWindow?.rootViewController as? MainTabBarController
                                 tapBarVC?.trackDetailView.delagate = self
                             self.track = track
+                                self.number = self.tracks.firstIndex(of: track)! + 1
                             self.tapBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
                             
                         }))
@@ -123,15 +128,20 @@ struct Library_Previews: PreviewProvider {
 }
 
 extension Library: TrackMoviesDelegate {
+   
+    
     func moveBackForPreviusTrack() -> SearchViewModel.Cell? {
         let index = tracks.firstIndex(of: track)
+        
         guard let myIndex = index else { return nil }
         
         var nextTrack: SearchViewModel.Cell
         if myIndex - 1 == -1  {
             nextTrack = tracks[tracks.count - 1]
+            number = tracks.count
         }else {
             nextTrack = tracks[myIndex - 1]
+            number! -= 1
         }
         self.track = nextTrack
         return nextTrack
@@ -143,13 +153,23 @@ extension Library: TrackMoviesDelegate {
         
         var nextTrack: SearchViewModel.Cell
         if myIndex + 1 == tracks.count {
+            number = 1
             nextTrack = tracks[0]
         }else {
             nextTrack = tracks[myIndex + 1]
+            number! += 1
         }
         self.track = nextTrack
         return nextTrack
     }
     
+    var numberOfTracks: Int? {
+        return tracks.count
+       }
+       
+       var numberOfTrack: Int? {
+           return number
+       }
+       
     
 }

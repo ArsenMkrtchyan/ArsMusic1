@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-Od-pvo">
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-Od-pvo">
                     <rect key="frame" x="0.0" y="44" width="414" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psy-Pu-h39">
@@ -78,16 +78,35 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kpL-bc-gVf">
                     <rect key="frame" x="8" y="44" width="398" height="793"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb7-vk-B1l">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ziO-SD-1oG">
                             <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="xSI-vy-3hv"/>
-                            </constraints>
-                            <state key="normal" image="Drag Down"/>
-                            <connections>
-                                <action selector="dragDownButtonTapped:" destination="CJp-5D-ly6" eventType="touchUpInside" id="iay-TD-abT"/>
-                            </connections>
-                        </button>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb7-vk-B1l">
+                                    <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="xSI-vy-3hv"/>
+                                    </constraints>
+                                    <state key="normal" image="Drag Down"/>
+                                    <connections>
+                                        <action selector="dragDownButtonTapped:" destination="CJp-5D-ly6" eventType="touchUpInside" id="iay-TD-abT"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 of 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uun-bC-omu">
+                                    <rect key="frame" x="132.66666666666669" y="0.0" width="132.66666666666669" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wds-Zb-4K2">
+                                    <rect key="frame" x="265.33333333333331" y="0.0" width="132.66666666666669" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" image="list.dash" catalog="system"/>
+                                    <connections>
+                                        <action selector="listButton:" destination="CJp-5D-ly6" eventType="touchUpInside" id="hen-vk-RkR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dda-pn-1Zn">
                             <rect key="frame" x="0.0" y="54" width="398" height="398"/>
                             <constraints>
@@ -219,6 +238,7 @@
                 <outlet property="miniTrackImageview" destination="tAm-Ya-b0J" id="PgU-1E-yk9"/>
                 <outlet property="miniTrackTitleLable" destination="bIU-b2-4Na" id="VmA-4J-bmt"/>
                 <outlet property="miniTrackView" destination="Kvx-Od-pvo" id="Xhf-bG-HcG"/>
+                <outlet property="numberOfTrack" destination="uun-bC-omu" id="6AG-uJ-AVS"/>
                 <outlet property="playButton" destination="9bP-rX-hqD" id="yvk-gU-sLy"/>
                 <outlet property="trackImage" destination="Dda-pn-1Zn" id="TzT-ZE-7FC"/>
                 <outlet property="trackNameLable" destination="11R-rp-Vsc" id="MNC-uD-Aq6"/>
@@ -234,6 +254,7 @@
         <image name="Image" width="54.333332061767578" height="54.333332061767578"/>
         <image name="Left" width="34" height="20"/>
         <image name="Right" width="34" height="20"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="pause" width="38" height="38"/>
     </resources>
 </document>
