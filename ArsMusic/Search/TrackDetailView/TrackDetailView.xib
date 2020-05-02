@@ -97,10 +97,9 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wds-Zb-4K2">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wds-Zb-4K2">
                                     <rect key="frame" x="265.33333333333331" y="0.0" width="132.66666666666669" height="44"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <state key="normal" image="list.dash" catalog="system"/>
+                                    <state key="normal" image="list.bullet" catalog="system"/>
                                     <connections>
                                         <action selector="listButton:" destination="CJp-5D-ly6" eventType="touchUpInside" id="hen-vk-RkR"/>
                                     </connections>
@@ -241,6 +240,7 @@
                 <outlet property="numberOfTrack" destination="uun-bC-omu" id="6AG-uJ-AVS"/>
                 <outlet property="playButton" destination="9bP-rX-hqD" id="yvk-gU-sLy"/>
                 <outlet property="trackImage" destination="Dda-pn-1Zn" id="TzT-ZE-7FC"/>
+                <outlet property="trackListButton" destination="Wds-Zb-4K2" id="x5G-zx-NLh"/>
                 <outlet property="trackNameLable" destination="11R-rp-Vsc" id="MNC-uD-Aq6"/>
                 <outlet property="volumeSlider" destination="Ji3-Yc-QGz" id="IXH-Tj-vMC"/>
             </connections>
@@ -254,7 +254,7 @@
         <image name="Image" width="54.333332061767578" height="54.333332061767578"/>
         <image name="Left" width="34" height="20"/>
         <image name="Right" width="34" height="20"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="pause" width="38" height="38"/>
     </resources>
 </document>

@@ -26,6 +26,7 @@ struct Library: View{
                     HStack(spacing:20) {
                         Button(action: {
                             self.track = self.tracks.first
+                            self.number = 1
                             self.tapBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
                         }, label: {
                             Image(systemName: "play.fill")

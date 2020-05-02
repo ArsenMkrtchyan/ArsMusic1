@@ -22,6 +22,7 @@ class TrackDetailView: UIView{
     @IBOutlet weak var numberOfTrack: UILabel!
     @IBOutlet weak var miniTrackView: UIView!
     @IBOutlet weak var miniTrackTitleLable: UILabel!
+    @IBOutlet weak var trackListButton: UIButton!
     @IBOutlet weak var miniTrackImageview: UIImageView!
     @IBOutlet weak var miniPlayPauseButtonb: UIButton!
     @IBOutlet weak var maximizeStackView: UIStackView!
@@ -52,7 +53,6 @@ class TrackDetailView: UIView{
         trackImage.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImage.layer.cornerRadius = 10
         setupGesture()
-        
         miniPlayPauseButtonb.imageEdgeInsets = .init(top: 11, left: 11, bottom: 11, right: 11)
         
     }
