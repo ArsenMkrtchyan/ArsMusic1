@@ -129,6 +129,14 @@ struct Library_Previews: PreviewProvider {
 }
 
 extension Library: TrackMoviesDelegate {
+    func moveBackRadioForPreviusTrack() -> TrackCellViewModel? {
+        return nil
+    }
+    
+    func moveForwordRadioForPreviusTrack() -> TrackCellViewModel? {
+        return nil
+    }
+    
    
     
     func moveBackForPreviusTrack() -> SearchViewModel.Cell? {

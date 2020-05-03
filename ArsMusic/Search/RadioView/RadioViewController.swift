@@ -22,6 +22,9 @@ class RadioViewController: UIViewController, RadioDisplayLogic{
     var router: (NSObjectProtocol & RadioRoutingLogic)?
     var stations = [RadioStation]()
     weak var tabBarDelagate: MainTabBarControllerDeledate?
+    var number: Int?
+    var count: Int?
+    var trackDetalView = TrackDetailView()
   
     
     var previousStation: RadioStation?
@@ -79,6 +82,7 @@ class RadioViewController: UIViewController, RadioDisplayLogic{
         navigationItem.title = "Radio Stetion"
         tableView.delegate = self
         tableView.dataSource = self
+        delegateTrack()
         
     }
     
@@ -86,7 +90,18 @@ class RadioViewController: UIViewController, RadioDisplayLogic{
     func displayData(viewModel: Radio.Model.ViewModel.ViewModelData) {
         
     }
- 
+    private func delegateTrack(){
+       let kayWindow = UIApplication.shared.connectedScenes.filter({
+            $0.activationState == .foregroundActive
+        }).map({
+            $0 as? UIWindowScene
+        }).compactMap({$0}).first?.windows.filter({
+            $0.isKeyWindow
+        }).first
+        
+        let tapBarVC = kayWindow?.rootViewController as? MainTabBarController
+        tapBarVC?.trackDetailView.delagate = self
+    }
     func loadStationsFromJSON() {
         
         DataManager.getStationDataWithSuccess() { (data) in
@@ -105,6 +120,7 @@ class RadioViewController: UIViewController, RadioDisplayLogic{
 extension RadioViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        count = stations.count
         return stations.count
     }
     
@@ -121,6 +137,8 @@ extension RadioViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        number = indexPath.row + 1
+        delegateTrack()
         let cellViewModel = stations[indexPath.row]
         self.tabBarDelagate?.maximizeRadioTrackDetailController(viewModel: cellViewModel)
         
@@ -131,6 +149,61 @@ extension RadioViewController: UITableViewDelegate, UITableViewDataSource {
         return stations.count > 0 ? 0 : 250
     }
     
+    
+    
+}
+extension RadioViewController: TrackMoviesDelegate {
+    
+    private func getTrack(isForwordTreack: Bool) -> TrackCellViewModel? {
+    guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+    tableView.deselectRow(at: indexPath, animated: true)
+    var nextIndexPath: IndexPath!
+    if isForwordTreack {
+        nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+        if nextIndexPath.row == stations.count {
+            nextIndexPath.row = 0
+        }
+    }else {
+           nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+           if  nextIndexPath.row == -1 {
+            nextIndexPath.row = stations.count - 1
+            
+            
+            }
+    }
+    
+    tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
+    number = nextIndexPath.row + 1
+    let cellModelView = stations[nextIndexPath.row]
+    return cellModelView
+        
+    }
+    func moveBackRadioForPreviusTrack() -> TrackCellViewModel? {
+        
+        return getTrack(isForwordTreack: false)
+    }
+    
+    func moveForwordRadioForPreviusTrack() -> TrackCellViewModel? {
+        
+        return getTrack(isForwordTreack: true)
+    }
+    
+    
+    func moveBackForPreviusTrack() -> SearchViewModel.Cell? {
+        return nil
+    }
+    
+    func moveForwordForPreviusTrack() -> SearchViewModel.Cell? {
+        return nil
+    }
+    
+    var numberOfTracks: Int? {
+        return count
+    }
+    
+    var numberOfTrack: Int? {
+        return number
+    }
     
     
 }

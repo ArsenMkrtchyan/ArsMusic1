@@ -25,10 +25,6 @@ class MainTabBarController: UITabBarController {
     private var bottomAnchorConstraint:NSLayoutConstraint!
     
     
-    private func setupViews() {
-       
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -46,7 +42,6 @@ class MainTabBarController: UITabBarController {
         let radioVC = RadioViewController()
         radioVC.tabBarDelagate = self
        
-        setupViews()
         viewControllers = [
             hostVC,
             generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "Add"), title: "Apple Music"),
@@ -66,7 +61,7 @@ class MainTabBarController: UITabBarController {
         return navigationVC
     }
     
-    
+   
     
     private func setupTrackDetailView() {
         

@@ -155,6 +155,14 @@ extension SearchViewController: UISearchBarDelegate {
 // MARK: - Track Movies Delegate
 
 extension SearchViewController: TrackMoviesDelegate {
+    func moveBackRadioForPreviusTrack() -> TrackCellViewModel? {
+        return nil
+    }
+    
+    func moveForwordRadioForPreviusTrack() -> TrackCellViewModel? {
+        return nil
+    }
+    
    
     
     

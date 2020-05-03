@@ -15,6 +15,8 @@ protocol TrackMoviesDelegate {
     func moveForwordForPreviusTrack() -> SearchViewModel.Cell?
     var numberOfTracks: Int? {get}
     var numberOfTrack: Int? {get}
+    func moveBackRadioForPreviusTrack() -> TrackCellViewModel?
+    func moveForwordRadioForPreviusTrack() -> TrackCellViewModel?
     
 }
 
@@ -38,7 +40,7 @@ class TrackDetailView: UIView{
     @IBOutlet weak var artistNameLable: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
-    
+    var timer: Timer!
     var delagate: TrackMoviesDelegate?
     var tracks = UserDefaults.standard.savedTracks()
     weak var tabBarDelegate: MainTabBarControllerDeledate?
@@ -47,7 +49,7 @@ class TrackDetailView: UIView{
         avPlayer.automaticallyWaitsToMinimizeStalling = false
         return avPlayer
     }()
-    
+    var isRadioView: Bool?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,10 +65,6 @@ class TrackDetailView: UIView{
     func set(viewModel: SearchViewModel.Cell, number: Int?) {
         trackNameLable.text = viewModel.trackName
         trackNameLable.numberOfLines = 2
-        nextButton.isHidden = false
-        forwordutton.isHidden = false
-        miniGoForwordButton.isHidden = false
-        numberOfTrack.isHidden = false
         miniTrackTitleLable.text = viewModel.trackName
         artistNameLable.text = viewModel.artistName
         playTrack(previewUrl: viewModel.previewUrl)
@@ -81,16 +79,13 @@ class TrackDetailView: UIView{
         guard let url = URL(string: string600 ?? "")  else { return }
         trackImage.sd_setImage(with: url, completed: nil)
         miniTrackImageview.sd_setImage(with: url, completed: nil)
+        isRadioView = false
         
         
     }
     func setRadio(viewModel: TrackCellViewModel) {
         trackNameLable.text = viewModel.trackName
         trackNameLable.numberOfLines = 2
-        nextButton.isHidden = true
-        forwordutton.isHidden = true
-        miniGoForwordButton.isHidden = true
-        numberOfTrack.isHidden = true
         miniTrackTitleLable.text = viewModel.trackName
         artistNameLable.text = viewModel.artistName
         playTrack(previewUrl: viewModel.trackUrl)
@@ -105,7 +100,12 @@ class TrackDetailView: UIView{
         guard let imageName = viewModel.iconUrlString else {return}
         trackImage.image = UIImage(named: imageName)
         miniTrackImageview.image = UIImage(named: imageName)
-        playPauseAction(self)
+        isRadioView = true
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] (_) in
+            self?.player.play()
+        })
+        
         
     }
     
@@ -116,11 +116,11 @@ class TrackDetailView: UIView{
     }
     
     private func playTrack(previewUrl: String?) {
+        
         guard let url = URL(string: previewUrl ?? "") else { return }
         let playerItem = AVPlayerItem(url: url)
         player.replaceCurrentItem(with: playerItem)
-        player.play()
-    }
+        }
     //MARK: -Maximasing an d minimazing gestures
     
     @objc private func handleTapMaximized() {
@@ -236,7 +236,7 @@ class TrackDetailView: UIView{
         self.tabBarDelegate?.minimizeTrackDetailController()
     }
     @IBAction func listButton(_ sender: Any) {
-        self.tabBarDelegate?.minimizeTrackDetailController()
+        
     }
     
     @IBAction func handleCurrentTime(_ sender: UISlider) {
@@ -253,13 +253,23 @@ class TrackDetailView: UIView{
         player.volume = volumeSlider.value
     }
     @IBAction func previousTrack(_ sender: Any) {
+        if isRadioView! {
+            guard let radioCell = delagate?.moveBackRadioForPreviusTrack() else {return}
+            self.setRadio(viewModel: radioCell)
+        } else {
         guard let cellViewModel = delagate?.moveBackForPreviusTrack() else { return }
         self.set(viewModel: cellViewModel,number: nil)
+        }
     }
     
     @IBAction func nextTrack(_ sender: Any) {
+        if isRadioView! {
+            guard let radioCell = delagate?.moveForwordRadioForPreviusTrack() else {return}
+            self.setRadio(viewModel: radioCell)
+        } else {
         guard let cellViewModel = delagate?.moveForwordForPreviusTrack() else { return }
         self.set(viewModel: cellViewModel,number: nil)
+        }
     }
     
     @IBAction func playPauseAction(_ sender: Any) {
