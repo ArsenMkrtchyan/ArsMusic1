@@ -59,7 +59,6 @@
                     <constraint firstAttribute="bottom" secondItem="qrf-Jk-e1c" secondAttribute="bottom" constant="34" id="cY2-1J-1Xa"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="addButton" destination="qrf-Jk-e1c" id="Ct8-KV-rb0"/>
                 <outlet property="artistName" destination="Ha7-vv-Qhu" id="sBm-ix-2xt"/>

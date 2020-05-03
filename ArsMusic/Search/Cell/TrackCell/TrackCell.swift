@@ -14,12 +14,14 @@ protocol TrackCellViewModel {
     var trackName: String {get}
     var collectinName: String {get}
     var artistName: String {get}
+    var trackUrl: String { get }
 }
 
 class TrackCell: UITableViewCell {
     
     static let reusleId = "TrackCell"
     var cell: SearchViewModel.Cell?
+    var radioCell: TrackCellViewModel?
 
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var artistName: UILabel!
@@ -54,6 +56,18 @@ class TrackCell: UITableViewCell {
         
         guard let url = URL(string: viewModel.iconUrlString ?? "") else { return }
         treckImageView.sd_setImage(with: url, completed: nil)
+    }
+    
+    func setRadio(viewModel:TrackCellViewModel) {
+        addButton.isHidden = true
+        self.radioCell = viewModel
+        artistName.text = viewModel.artistName
+        trackName.text = viewModel.trackName
+        //collectinName.text = viewModel.collectinName
+        collectinName.isHidden = true
+        guard let imageName = viewModel.iconUrlString else {return}
+        print(imageName)
+        treckImageView.image = UIImage(named: imageName)
     }
     
     @IBAction func addtTrackAction(_ sender: Any) {

@@ -17,6 +17,19 @@
 		F3593141245C0CDA00BDF7A4 /* WebInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */; };
 		F3593142245C0CDA00BDF7A4 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F359313B245C0CDA00BDF7A4 /* WebViewController.xib */; };
 		F3593144245C171300BDF7A4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3593143245C171300BDF7A4 /* WebKit.framework */; };
+		F3593146245DEC0000BDF7A4 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593145245DEC0000BDF7A4 /* RadioStation.swift */; };
+		F3593148245DEC6200BDF7A4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593147245DEC6200BDF7A4 /* DataManager.swift */; };
+		F359314C245DED3100BDF7A4 /* SwiftRadio-Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359314B245DED3100BDF7A4 /* SwiftRadio-Settings.swift */; };
+		F3593155245DEE5F00BDF7A4 /* RadioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359314E245DEE5F00BDF7A4 /* RadioPresenter.swift */; };
+		F3593156245DEE5F00BDF7A4 /* RadioWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F359314F245DEE5F00BDF7A4 /* RadioWorker.swift */; };
+		F3593157245DEE5F00BDF7A4 /* RadioRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593150245DEE5F00BDF7A4 /* RadioRouter.swift */; };
+		F3593158245DEE5F00BDF7A4 /* RadioModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593151245DEE5F00BDF7A4 /* RadioModels.swift */; };
+		F3593159245DEE5F00BDF7A4 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593152245DEE5F00BDF7A4 /* RadioViewController.swift */; };
+		F359315A245DEE5F00BDF7A4 /* RadioInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593153245DEE5F00BDF7A4 /* RadioInteractor.swift */; };
+		F359315B245DEE5F00BDF7A4 /* RadioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3593154245DEE5F00BDF7A4 /* RadioViewController.xib */; };
+		F3593161245DF57400BDF7A4 /* RadioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3593160245DF57400BDF7A4 /* RadioCell.xib */; };
+		F3593163245DF62A00BDF7A4 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3593162245DF62A00BDF7A4 /* RadioCell.swift */; };
+		F3593167245EF85000BDF7A4 /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = F3593166245EF85000BDF7A4 /* stations.json */; };
 		F35F875A24580CB700DA5559 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F875924580CB700DA5559 /* Library.swift */; };
 		F35F875C24584EF000DA5559 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F875B24584EF000DA5559 /* UserDefaults.swift */; };
 		F35F875F245861FB00DA5559 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = F35F875E245861FB00DA5559 /* URLImage */; };
@@ -85,6 +98,19 @@
 		F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebInteractor.swift; sourceTree = "<group>"; };
 		F359313B245C0CDA00BDF7A4 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		F3593143245C171300BDF7A4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		F3593145245DEC0000BDF7A4 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
+		F3593147245DEC6200BDF7A4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		F359314B245DED3100BDF7A4 /* SwiftRadio-Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftRadio-Settings.swift"; sourceTree = "<group>"; };
+		F359314E245DEE5F00BDF7A4 /* RadioPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPresenter.swift; sourceTree = "<group>"; };
+		F359314F245DEE5F00BDF7A4 /* RadioWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWorker.swift; sourceTree = "<group>"; };
+		F3593150245DEE5F00BDF7A4 /* RadioRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioRouter.swift; sourceTree = "<group>"; };
+		F3593151245DEE5F00BDF7A4 /* RadioModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModels.swift; sourceTree = "<group>"; };
+		F3593152245DEE5F00BDF7A4 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		F3593153245DEE5F00BDF7A4 /* RadioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInteractor.swift; sourceTree = "<group>"; };
+		F3593154245DEE5F00BDF7A4 /* RadioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioViewController.xib; sourceTree = "<group>"; };
+		F3593160245DF57400BDF7A4 /* RadioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioCell.xib; sourceTree = "<group>"; };
+		F3593162245DF62A00BDF7A4 /* RadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
+		F3593166245EF85000BDF7A4 /* stations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stations.json; sourceTree = "<group>"; };
 		F35F875924580CB700DA5559 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		F35F875B24584EF000DA5559 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F3686ECD24543E1200ADF04F /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
@@ -177,6 +203,69 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		F3593149245DEC7800BDF7A4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F3A89CFD244F2BA700CE521A /* NetworkService.swift */,
+				F3593147245DEC6200BDF7A4 /* DataManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F359314A245DED0600BDF7A4 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				F3A89D1D2450421900CE521A /* SearchViewController.storyboard */,
+				F3A89D13244F6FBD00CE521A /* SearchViewController.swift */,
+				F3A89D14244F6FBD00CE521A /* SearchInteractor.swift */,
+				F3A89D12244F6FBD00CE521A /* SearchModels.swift */,
+				F3A89D0F244F6FBD00CE521A /* SearchPresenter.swift */,
+				F3A89D11244F6FBD00CE521A /* SearchRouter.swift */,
+				F3A89D10244F6FBD00CE521A /* SearchWorker.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		F359314D245DEE3F00BDF7A4 /* RadioView */ = {
+			isa = PBXGroup;
+			children = (
+				F3593154245DEE5F00BDF7A4 /* RadioViewController.xib */,
+				F3593152245DEE5F00BDF7A4 /* RadioViewController.swift */,
+				F359314E245DEE5F00BDF7A4 /* RadioPresenter.swift */,
+				F359314F245DEE5F00BDF7A4 /* RadioWorker.swift */,
+				F3593150245DEE5F00BDF7A4 /* RadioRouter.swift */,
+				F3593151245DEE5F00BDF7A4 /* RadioModels.swift */,
+				F3593153245DEE5F00BDF7A4 /* RadioInteractor.swift */,
+			);
+			path = RadioView;
+			sourceTree = "<group>";
+		};
+		F359315C245DF2A600BDF7A4 /* TrackCell */ = {
+			isa = PBXGroup;
+			children = (
+				F3A89D25245087B800CE521A /* TrackCell.swift */,
+				F3A89D232450879300CE521A /* TrackCell.xib */,
+			);
+			path = TrackCell;
+			sourceTree = "<group>";
+		};
+		F359315D245DF30200BDF7A4 /* RadioCell */ = {
+			isa = PBXGroup;
+			children = (
+				F3593160245DF57400BDF7A4 /* RadioCell.xib */,
+				F3593162245DF62A00BDF7A4 /* RadioCell.swift */,
+			);
+			path = RadioCell;
+			sourceTree = "<group>";
+		};
+		F3593164245EBE0100BDF7A4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F3593166245EF85000BDF7A4 /* stations.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		F3A89CB5244E0D4B00CE521A = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +295,7 @@
 				F3A89CE3244E0D8200CE521A /* MainTabBarController.swift */,
 				F3A89CFF244F6E0000CE521A /* Search */,
 				F3A89CE5244E125400CE521A /* SearchMusicViewControoler.swift */,
+				F359314B245DED3100BDF7A4 /* SwiftRadio-Settings.swift */,
 				F3A89CC5244E0D4B00CE521A /* ViewController.swift */,
 				F3A89D212450464800CE521A /* Helpers */,
 				F3A89CC7244E0D4B00CE521A /* Main.storyboard */,
@@ -232,13 +322,8 @@
 				F3A89D2B2451B61600CE521A /* TrackDetailView */,
 				F3A89D282451942100CE521A /* FooterView */,
 				F3A89D222450876700CE521A /* Cell */,
-				F3A89D1D2450421900CE521A /* SearchViewController.storyboard */,
-				F3A89D13244F6FBD00CE521A /* SearchViewController.swift */,
-				F3A89D14244F6FBD00CE521A /* SearchInteractor.swift */,
-				F3A89D12244F6FBD00CE521A /* SearchModels.swift */,
-				F3A89D0F244F6FBD00CE521A /* SearchPresenter.swift */,
-				F3A89D10244F6FBD00CE521A /* SearchWorker.swift */,
-				F3A89D11244F6FBD00CE521A /* SearchRouter.swift */,
+				F359314D245DEE3F00BDF7A4 /* RadioView */,
+				F359314A245DED0600BDF7A4 /* SearchView */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -246,8 +331,9 @@
 		F3A89D0E244F6EBC00CE521A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F3593164245EBE0100BDF7A4 /* Data */,
 				F3A89D27245096AB00CE521A /* Models */,
-				F3A89CFD244F2BA700CE521A /* NetworkService.swift */,
+				F3593149245DEC7800BDF7A4 /* Network */,
 				F35F875924580CB700DA5559 /* Library.swift */,
 			);
 			path = Services;
@@ -266,8 +352,8 @@
 		F3A89D222450876700CE521A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				F3A89D232450879300CE521A /* TrackCell.xib */,
-				F3A89D25245087B800CE521A /* TrackCell.swift */,
+				F359315D245DF30200BDF7A4 /* RadioCell */,
+				F359315C245DF2A600BDF7A4 /* TrackCell */,
 				F35F875B24584EF000DA5559 /* UserDefaults.swift */,
 			);
 			path = Cell;
@@ -277,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A89CFB244F05F300CE521A /* SearchResponse.swift */,
+				F3593145245DEC0000BDF7A4 /* RadioStation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -391,10 +478,13 @@
 			files = (
 				F3A89CCE244E0D5100CE521A /* LaunchScreen.storyboard in Resources */,
 				F3A89CCB244E0D5100CE521A /* Assets.xcassets in Resources */,
+				F3593167245EF85000BDF7A4 /* stations.json in Resources */,
 				F3A89D242450879400CE521A /* TrackCell.xib in Resources */,
 				F3593142245C0CDA00BDF7A4 /* WebViewController.xib in Resources */,
 				F3A89D1E2450421900CE521A /* SearchViewController.storyboard in Resources */,
+				F3593161245DF57400BDF7A4 /* RadioCell.xib in Resources */,
 				F3A89D2D2451B65200CE521A /* TrackDetailView.xib in Resources */,
+				F359315B245DEE5F00BDF7A4 /* RadioViewController.xib in Resources */,
 				F3A89CC9244E0D4B00CE521A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,32 +567,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3593148245DEC6200BDF7A4 /* DataManager.swift in Sources */,
+				F3593159245DEE5F00BDF7A4 /* RadioViewController.swift in Sources */,
 				F3A89CC6244E0D4B00CE521A /* ViewController.swift in Sources */,
 				F359313E245C0CDA00BDF7A4 /* WebRouter.swift in Sources */,
 				F3A89CC2244E0D4B00CE521A /* AppDelegate.swift in Sources */,
 				F3A89CFC244F05F300CE521A /* SearchResponse.swift in Sources */,
 				F3A89D1B244F6FBD00CE521A /* SearchInteractor.swift in Sources */,
 				F3A89D26245087B800CE521A /* TrackCell.swift in Sources */,
+				F3593158245DEE5F00BDF7A4 /* RadioModels.swift in Sources */,
 				F359313F245C0CDA00BDF7A4 /* WebModels.swift in Sources */,
 				F35F875C24584EF000DA5559 /* UserDefaults.swift in Sources */,
 				F3A89D2A2451944A00CE521A /* FooterView.swift in Sources */,
+				F359314C245DED3100BDF7A4 /* SwiftRadio-Settings.swift in Sources */,
 				F3686ECE24543E1200ADF04F /* CMTime + Extension.swift in Sources */,
 				F3A89CE6244E125400CE521A /* SearchMusicViewControoler.swift in Sources */,
 				F3593140245C0CDA00BDF7A4 /* WebViewController.swift in Sources */,
 				F3686ED024556B7700ADF04F /* Nib.swift in Sources */,
 				F3A89CE4244E0D8200CE521A /* MainTabBarController.swift in Sources */,
+				F3593155245DEE5F00BDF7A4 /* RadioPresenter.swift in Sources */,
 				F3A89D17244F6FBD00CE521A /* SearchWorker.swift in Sources */,
 				F3A89D1A244F6FBD00CE521A /* SearchViewController.swift in Sources */,
+				F3593157245DEE5F00BDF7A4 /* RadioRouter.swift in Sources */,
 				F3A89D18244F6FBD00CE521A /* SearchRouter.swift in Sources */,
 				F3A89D19244F6FBD00CE521A /* SearchModels.swift in Sources */,
+				F3593156245DEE5F00BDF7A4 /* RadioWorker.swift in Sources */,
 				F3A89CC4244E0D4B00CE521A /* SceneDelegate.swift in Sources */,
 				F3593141245C0CDA00BDF7A4 /* WebInteractor.swift in Sources */,
 				F3A89D16244F6FBD00CE521A /* SearchPresenter.swift in Sources */,
 				F3A89CFE244F2BA700CE521A /* NetworkService.swift in Sources */,
+				F3593146245DEC0000BDF7A4 /* RadioStation.swift in Sources */,
+				F3593163245DF62A00BDF7A4 /* RadioCell.swift in Sources */,
 				F35F875A24580CB700DA5559 /* Library.swift in Sources */,
 				F3A89D2F2451B66C00CE521A /* TrackDetailView.swift in Sources */,
 				F3A89D202450463200CE521A /* UIViewController + Storybord.swift in Sources */,
 				F359313C245C0CDA00BDF7A4 /* WebPresenter.swift in Sources */,
+				F359315A245DEE5F00BDF7A4 /* RadioInteractor.swift in Sources */,
 				F359313D245C0CDA00BDF7A4 /* WebWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

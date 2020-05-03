@@ -23,6 +23,11 @@ class MainTabBarController: UITabBarController {
     private var maximaizedTopAnchorConstraint: NSLayoutConstraint!
     private var bottomAnchorConstraint:NSLayoutConstraint!
     
+    
+    private func setupViews() {
+       
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -37,10 +42,14 @@ class MainTabBarController: UITabBarController {
         let webVC = WebViewController()
         webVC.tabBarItem.title = "Web Search"
         webVC.tabBarItem.image = #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon")
+        let radioVC = RadioViewController()
+       
+        setupViews()
         viewControllers = [
             hostVC,
-            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "Add"), title: "Apple"),
-            webVC
+            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "Add"), title: "Apple Music"),
+            webVC,
+            generateViewController(rootViewController: radioVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Radio Stetion")
             
         ]
     }
@@ -55,7 +64,7 @@ class MainTabBarController: UITabBarController {
         return navigationVC
     }
     
-   
+    
     
     private func setupTrackDetailView() {
         
