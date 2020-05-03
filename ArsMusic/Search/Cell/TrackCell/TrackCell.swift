@@ -60,13 +60,13 @@ class TrackCell: UITableViewCell {
     
     func setRadio(viewModel:TrackCellViewModel) {
         addButton.isHidden = true
+        
         self.radioCell = viewModel
         artistName.text = viewModel.artistName
         trackName.text = viewModel.trackName
         //collectinName.text = viewModel.collectinName
         collectinName.isHidden = true
         guard let imageName = viewModel.iconUrlString else {return}
-        print(imageName)
         treckImageView.image = UIImage(named: imageName)
     }
     

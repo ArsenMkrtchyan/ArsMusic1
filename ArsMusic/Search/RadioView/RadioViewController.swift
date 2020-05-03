@@ -15,12 +15,13 @@ protocol RadioDisplayLogic: class {
     func displayData(viewModel: Radio.Model.ViewModel.ViewModelData)
 }
 
-class RadioViewController: UIViewController, RadioDisplayLogic {
+class RadioViewController: UIViewController, RadioDisplayLogic{
     private lazy var footerView = FooterView()
     @IBOutlet weak var tableView: UITableView!
     var interactor: RadioBusinessLogic?
     var router: (NSObjectProtocol & RadioRoutingLogic)?
     var stations = [RadioStation]()
+    weak var tabBarDelagate: MainTabBarControllerDeledate?
   
     
     var previousStation: RadioStation?
@@ -81,6 +82,7 @@ class RadioViewController: UIViewController, RadioDisplayLogic {
         
     }
     
+    
     func displayData(viewModel: Radio.Model.ViewModel.ViewModelData) {
         
     }
@@ -96,9 +98,6 @@ class RadioViewController: UIViewController, RadioDisplayLogic {
                 return
             }
             self.stations = stationsArray
-            self.stations.forEach({
-                print($0.iconUrlString)
-            })
         }
     }
     
@@ -122,9 +121,8 @@ extension RadioViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let cellViewModel = searchViewModel.cells[indexPath.row]
-//        self.tabBarDelagate?.maximizeTrackDetailController(viewModel: cellViewModel)
+        let cellViewModel = stations[indexPath.row]
+        self.tabBarDelagate?.maximizeRadioTrackDetailController(viewModel: cellViewModel)
         
     }
     

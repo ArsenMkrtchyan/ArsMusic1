@@ -15,10 +15,13 @@ protocol TrackMoviesDelegate {
     func moveForwordForPreviusTrack() -> SearchViewModel.Cell?
     var numberOfTracks: Int? {get}
     var numberOfTrack: Int? {get}
+    
 }
 
 class TrackDetailView: UIView{
     
+    @IBOutlet weak var forwordutton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var numberOfTrack: UILabel!
     @IBOutlet weak var miniTrackView: UIView!
     @IBOutlet weak var miniTrackTitleLable: UILabel!
@@ -48,7 +51,6 @@ class TrackDetailView: UIView{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         let scale: CGFloat = 0.8
         trackImage.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImage.layer.cornerRadius = 10
@@ -61,6 +63,10 @@ class TrackDetailView: UIView{
     func set(viewModel: SearchViewModel.Cell, number: Int?) {
         trackNameLable.text = viewModel.trackName
         trackNameLable.numberOfLines = 2
+        nextButton.isHidden = false
+        forwordutton.isHidden = false
+        miniGoForwordButton.isHidden = false
+        numberOfTrack.isHidden = false
         miniTrackTitleLable.text = viewModel.trackName
         artistNameLable.text = viewModel.artistName
         playTrack(previewUrl: viewModel.previewUrl)
@@ -76,6 +82,30 @@ class TrackDetailView: UIView{
         trackImage.sd_setImage(with: url, completed: nil)
         miniTrackImageview.sd_setImage(with: url, completed: nil)
         
+        
+    }
+    func setRadio(viewModel: TrackCellViewModel) {
+        trackNameLable.text = viewModel.trackName
+        trackNameLable.numberOfLines = 2
+        nextButton.isHidden = true
+        forwordutton.isHidden = true
+        miniGoForwordButton.isHidden = true
+        numberOfTrack.isHidden = true
+        miniTrackTitleLable.text = viewModel.trackName
+        artistNameLable.text = viewModel.artistName
+        playTrack(previewUrl: viewModel.trackUrl)
+        //player.play()
+        monitorStartTime()
+        observeLayerCurrentTime()
+        if let mycount = delagate?.numberOfTracks,let mynumber = delagate?.numberOfTrack{
+        numberOfTrack.text = "\(mynumber) of \(mycount) "
+        }
+        playButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        miniPlayPauseButtonb.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        guard let imageName = viewModel.iconUrlString else {return}
+        trackImage.image = UIImage(named: imageName)
+        miniTrackImageview.image = UIImage(named: imageName)
+        playPauseAction(self)
         
     }
     
@@ -206,6 +236,7 @@ class TrackDetailView: UIView{
         self.tabBarDelegate?.minimizeTrackDetailController()
     }
     @IBAction func listButton(_ sender: Any) {
+        self.tabBarDelegate?.minimizeTrackDetailController()
     }
     
     @IBAction func handleCurrentTime(_ sender: UISlider) {

@@ -231,12 +231,14 @@
                 <outlet property="currentTimeLable" destination="u6N-5x-AAu" id="4zm-Ok-0mw"/>
                 <outlet property="currentTimeSlider" destination="DoG-BK-Mdu" id="drX-OL-Quf"/>
                 <outlet property="durationLable" destination="PHT-Hy-y9L" id="cu1-jZ-PvC"/>
+                <outlet property="forwordutton" destination="37N-DP-Flc" id="7UF-mo-lYy"/>
                 <outlet property="maximizeStackView" destination="kpL-bc-gVf" id="xbp-2D-4En"/>
                 <outlet property="miniGoForwordButton" destination="nef-Il-nEi" id="rFO-rH-m5c"/>
                 <outlet property="miniPlayPauseButtonb" destination="vjt-sb-D7e" id="dkl-uO-LVU"/>
                 <outlet property="miniTrackImageview" destination="tAm-Ya-b0J" id="PgU-1E-yk9"/>
                 <outlet property="miniTrackTitleLable" destination="bIU-b2-4Na" id="VmA-4J-bmt"/>
                 <outlet property="miniTrackView" destination="Kvx-Od-pvo" id="Xhf-bG-HcG"/>
+                <outlet property="nextButton" destination="Fhl-iH-wgh" id="ur7-Fd-xtT"/>
                 <outlet property="numberOfTrack" destination="uun-bC-omu" id="6AG-uJ-AVS"/>
                 <outlet property="playButton" destination="9bP-rX-hqD" id="yvk-gU-sLy"/>
                 <outlet property="trackImage" destination="Dda-pn-1Zn" id="TzT-ZE-7FC"/>

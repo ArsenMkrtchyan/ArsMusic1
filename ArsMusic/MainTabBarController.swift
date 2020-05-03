@@ -11,6 +11,7 @@ import SwiftUI
 protocol MainTabBarControllerDeledate: class {
     func minimizeTrackDetailController()
     func maximizeTrackDetailController(viewModel:SearchViewModel.Cell?)
+    func maximizeRadioTrackDetailController(viewModel:TrackCellViewModel?)
 }
 
 
@@ -43,6 +44,7 @@ class MainTabBarController: UITabBarController {
         webVC.tabBarItem.title = "Web Search"
         webVC.tabBarItem.image = #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon")
         let radioVC = RadioViewController()
+        radioVC.tabBarDelagate = self
        
         setupViews()
         viewControllers = [
@@ -134,6 +136,31 @@ extension MainTabBarController: MainTabBarControllerDeledate {
                         self.trackDetailView.miniTrackView.alpha = 1
         }, completion: nil)
     }
+    
+    func maximizeRadioTrackDetailController(viewModel: TrackCellViewModel?) {
+        
+        minimaizedTopAnchorConstraint.isActive = false
+        maximaizedTopAnchorConstraint.isActive = true
+        maximaizedTopAnchorConstraint.constant = 0
+        bottomAnchorConstraint.constant = 0
+        
+        UIView.animate(withDuration: 0.5,
+                              delay: 0,
+                              usingSpringWithDamping: 0.7,
+                              initialSpringVelocity: 1,
+                              options: .curveEaseOut,
+                              animations: {
+                                
+                                self.tabBar.alpha = 0
+                                self.view.layoutIfNeeded()
+                                self.trackDetailView.miniTrackView.alpha = 0
+                                self.trackDetailView.maximizeStackView.alpha = 1
+               }, completion: nil)
+        
+        guard let viewModel = viewModel else { return }
+        self.trackDetailView.setRadio(viewModel: viewModel)
+    }
+    
     
     
 }
