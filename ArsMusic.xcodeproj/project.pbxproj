@@ -192,13 +192,13 @@
 		F31500622459C05000AE9353 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				F359313B245C0CDA00BDF7A4 /* WebViewController.xib */,
 				F3593135245C0CDA00BDF7A4 /* WebPresenter.swift */,
 				F3593136245C0CDA00BDF7A4 /* WebWorker.swift */,
 				F3593137245C0CDA00BDF7A4 /* WebRouter.swift */,
 				F3593138245C0CDA00BDF7A4 /* WebModels.swift */,
 				F3593139245C0CDA00BDF7A4 /* WebViewController.swift */,
 				F359313A245C0CDA00BDF7A4 /* WebInteractor.swift */,
-				F359313B245C0CDA00BDF7A4 /* WebViewController.xib */,
 			);
 			path = WebView;
 			sourceTree = "<group>";

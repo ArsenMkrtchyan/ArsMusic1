@@ -46,7 +46,7 @@ class MainTabBarController: UITabBarController {
             hostVC,
             generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "Add"), title: "Apple Music"),
             webVC,
-            generateViewController(rootViewController: radioVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Radio Stetion")
+            generateViewController(rootViewController: radioVC, image: #imageLiteral(resourceName: "ios10-apple-music-search-5nav-icon"), title: "Radio Station")
             
         ]
     }
@@ -71,6 +71,7 @@ class MainTabBarController: UITabBarController {
         trackDetailView.delagate = searchVC
         
         // use auto layout
+        
        trackDetailView.translatesAutoresizingMaskIntoConstraints = false
         maximaizedTopAnchorConstraint = trackDetailView.topAnchor.constraint(equalTo: view.topAnchor,constant: view.frame.height)
         minimaizedTopAnchorConstraint = trackDetailView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
@@ -79,7 +80,6 @@ class MainTabBarController: UITabBarController {
         maximaizedTopAnchorConstraint.isActive = true
         trackDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         trackDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        
         
     }
     
@@ -159,3 +159,4 @@ extension MainTabBarController: MainTabBarControllerDeledate {
     
     
 }
+

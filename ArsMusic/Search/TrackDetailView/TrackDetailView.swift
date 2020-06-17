@@ -102,8 +102,8 @@ class TrackDetailView: UIView{
         miniTrackImageview.image = UIImage(named: imageName)
         isRadioView = true
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] (_) in
-            self?.player.play()
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { [weak self] (_) in
+              self?.player.play()
         })
         
         
@@ -120,6 +120,7 @@ class TrackDetailView: UIView{
         guard let url = URL(string: previewUrl ?? "") else { return }
         let playerItem = AVPlayerItem(url: url)
         player.replaceCurrentItem(with: playerItem)
+        player.play()
         }
     //MARK: -Maximasing an d minimazing gestures
     
@@ -236,7 +237,7 @@ class TrackDetailView: UIView{
         self.tabBarDelegate?.minimizeTrackDetailController()
     }
     @IBAction func listButton(_ sender: Any) {
-        
+       
     }
     
     @IBAction func handleCurrentTime(_ sender: UISlider) {
